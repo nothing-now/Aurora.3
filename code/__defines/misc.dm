@@ -163,6 +163,7 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 
 //Area flags, possibly more to come
 #define RAD_SHIELDED 1 //shielded from radiation, clearly
+#define SPAWN_ROOF   2 // if we should attempt to spawn a roof above us.
 
 // Custom layer definitions, supplementing the default TURF_LAYER, MOB_LAYER, etc.
 #define DOOR_OPEN_LAYER 2.7		//Under all objects if opened. 2.7 due to tables being at 2.6
@@ -361,3 +362,10 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 #define USE_FAIL_INCAPACITATED 5
 #define USE_FAIL_NOT_IN_USER 6
 #define USE_FAIL_IS_SILICON 7
+
+// 510 doesn't have this flag, so this shim will turn it into a no-op if it doesn't exist.
+#ifndef SEE_BLACKNESS
+#define SEE_BLACKNESS 0
+#endif 
+
+#define DEFAULT_SIGHT (SEE_SELF|SEE_BLACKNESS)
