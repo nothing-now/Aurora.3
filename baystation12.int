@@ -1,11 +1,11 @@
 // BEGIN_INTERNALS
 /*
-LAST_COMPILE_TIME: 1498008151
-DIR: icons icons\turf icons\turf\flooring maps maps\Aurora-MapDev 
+LAST_COMPILE_TIME: 1499112224
+DIR: code code\modules code\modules\mob code\modules\mob\living code\modules\mob\living\carbon code\modules\mob\living\carbon\human code\modules\organs icons icons\mob icons\mob\screen 
 AUTO_FILE_DIR: OFF
 MAP_ICON_TYPE: 0
 LAST_COMPILE_VERSION: 511.1385
-WINDOW: icons\obj\projectiles.dmi;icons\obj\sac.dmi;icons\obj\stock_parts.dmi;icons\obj\storage.dmi;icons\obj\items.dmi;icons\turf\flooring\tiles.dmi
-FILE: icons\turf\flooring\tiles.dmi
+WINDOW: icons\obj\projectiles.dmi;icons\obj\sac.dmi;icons\obj\stock_parts.dmi;icons\obj\storage.dmi;icons\obj\items.dmi;icons\turf\flooring\tiles.dmi;icons\mob\screen\midnight.dmi;icons\mob\screen\old-noborder.dmi;icons\mob\screen\old.dmi;icons\mob\screen\orange.dmi;icons\mob\screen\white.dmi;code\modules\organs\organ_external.dm;code\modules\organs\pain.dm;code\modules\mob\living\carbon\human\emote.dm
+FILE: code\modules\mob\living\carbon\human\emote.dm
 */
 // END_INTERNALS
