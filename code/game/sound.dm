@@ -45,6 +45,7 @@ var/list/clown_sound = list('sound/effects/clownstep1.ogg','sound/effects/clowns
 var/list/swing_hit_sound = list('sound/weapons/genhit1.ogg', 'sound/weapons/genhit2.ogg', 'sound/weapons/genhit3.ogg')
 var/list/hiss_sound = list('sound/voice/hiss1.ogg','sound/voice/hiss2.ogg','sound/voice/hiss3.ogg','sound/voice/hiss4.ogg')
 var/list/page_sound = list('sound/effects/pageturn1.ogg', 'sound/effects/pageturn2.ogg','sound/effects/pageturn3.ogg')
+var/list/trauma_sound = list('sound/effects/gore/trauma1.ogg', 'sound/effects/gore/trauma2.ogg', 'sound/effects/gore/trauma3.ogg')
 
 //FOOTSTEPS
 var/list/defaultfootsteps = list('sound/effects/footsteps/tile1.wav','sound/effects/footsteps/tile2.wav','sound/effects/footsteps/tile3.wav','sound/effects/footsteps/tile4.wav')
@@ -81,7 +82,10 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 			var/turf/T = get_turf(M)
 
 			if(T && T.z == turf_source.z)
-				M.playsound_local(turf_source, soundin, vol, vary, frequency, falloff, is_global,usepressure, environment)
+				M.playsound_local(turf_source, soundin, vol, vary, frequency, falloff, is_global, usepressure, environment)
+			var/z_dist = abs(T.z - turf_source.z)//Playing sound on a z-level above or below you.
+			if(T && z_dist <= 1)
+				M.playsound_local(turf_source, soundin, vol/(1+z_dist), vary, frequency, falloff, usepressure, environment)
 
 var/const/FALLOFF_SOUNDS = 0.5
 
@@ -202,6 +206,7 @@ var/const/FALLOFF_SOUNDS = 0.5
 			if ("swing_hit") soundin = pick(swing_hit_sound)
 			if ("hiss") soundin = pick(hiss_sound)
 			if ("pageturn") soundin = pick(page_sound)
+			if ("trauma") soundin = pick(trauma_sound)
 			//if ("gunshot") soundin = pick(gun_sound)
 			if ("defaultstep") soundin = pick(defaultfootsteps)
 			if ("concretestep") soundin = pick(concretefootsteps)

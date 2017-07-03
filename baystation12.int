@@ -1,6 +1,11 @@
 // BEGIN_INTERNALS
 /*
-MAP_ICON_TYPE: 0
+LAST_COMPILE_TIME: 1498008151
+DIR: icons icons\turf icons\turf\flooring maps maps\Aurora-MapDev 
 AUTO_FILE_DIR: OFF
+MAP_ICON_TYPE: 0
+LAST_COMPILE_VERSION: 511.1385
+WINDOW: icons\obj\projectiles.dmi;icons\obj\sac.dmi;icons\obj\stock_parts.dmi;icons\obj\storage.dmi;icons\obj\items.dmi;icons\turf\flooring\tiles.dmi
+FILE: icons\turf\flooring\tiles.dmi
 */
 // END_INTERNALS

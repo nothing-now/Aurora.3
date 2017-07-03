@@ -325,7 +325,7 @@ var/list/slot_equipment_priority = list( \
 			step(src, inertia_dir)
 */
 
-
+		playsound(src, 'sound/effects/throw.ogg', 50, 1)
 		item.throw_at(target, item.throw_range, item.throw_speed, src)
 
 /mob/proc/delete_inventory(var/include_carried = FALSE)
