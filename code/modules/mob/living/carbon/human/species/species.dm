@@ -52,6 +52,15 @@
 	var/list/speech_chance                   // The likelihood of a speech sound playing.
 	var/num_alternate_languages = 0          // How many secondary languages are available to select at character creation
 	var/name_language = "Ceti Basic"	    // The language to use when determining names for this species, or null to use the first name/last name generator
+	var/male_scream_sound = null
+	var/female_scream_sound = null
+	var/male_pain_sounds = null
+	var/female_pain_sounds = null
+	var/male_moan_sounds = null
+	var/female_moan_sounds = null
+	var/male_cough_sounds = null
+	var/female_cough_sounds = null
+
 
 	// Combat vars.
 	var/total_health = 100                   // Point at which the mob will enter crit.

@@ -26,6 +26,17 @@
 	sprint_speed_factor = 0.9
 	sprint_cost_factor = 0.5
 
+	male_scream_sound = 'sound/voice/Screams_Male_1.ogg'
+	female_scream_sound = 'sound/voice/Screams_Woman_1.ogg'
+	male_pain_sounds = list('sound/voice/man_pain1.ogg', 'sound/voice/man_pain2.ogg', 'sound/voice/man_pain2.ogg')
+	female_pain_sounds = list('sound/voice/woman_agony1.ogg', 'sound/voice/woman_agony2.ogg', 'sound/voice/woman_agony3.ogg')
+	male_moan_sounds = list('sound/voice/male_moan1.ogg', 'sound/voice/male_moan2.ogg', 'sound/voice/male_moan3.ogg')
+	female_moan_sounds = list('sound/voice/female_moan1.ogg', 'sound/voice/female_moan2.ogg', 'sound/voice/female_moan1.ogg')
+	//male_cough_sounds = list('')
+	//female_cough_sounds = list('')
+	//male_sneeze_sounds = list('')
+	//female_sneeze_sounds = list('')
+
 /datum/species/unathi
 	name = "Unathi"
 	short_name = "una"

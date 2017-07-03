@@ -1,3 +1,9 @@
+mob/proc/flash_weakest_pain()
+	flick("weakest_pain",pain)
+
+mob/proc/flash_weak_pain()
+	flick("weak_pain",pain)
+
 mob/proc/flash_pain()
 	flick("pain",pain)
 
@@ -22,26 +28,32 @@ mob/living/carbon/proc/pain(var/partname, var/amount, var/force, var/burning = 0
 	if(amount > 50 && prob(amount / 5))
 		src:drop_item()
 	var/msg
-	if(burning)
-		switch(amount)
-			if(1 to 10)
-				msg = "<span class='danger'>Your [partname] burns.</span>"
-			if(11 to 90)
-				flash_weak_pain()
-				msg = "<span class='danger'><font size=2>Your [partname] burns badly!</font></span>"
-			if(91 to 10000)
-				flash_pain()
-				msg = "<span class='danger'><font size=3>OH GOD! Your [partname] is on fire!</font></span>"
-	else
-		switch(amount)
-			if(1 to 10)
-				msg = "<b>Your [partname] hurts.</b>"
-			if(11 to 90)
-				flash_weak_pain()
-				msg = "<b><font size=2>Your [partname] hurts badly.</font></b>"
-			if(91 to 10000)
-				flash_pain()
-				msg = "<b><font size=3>OH GOD! Your [partname] is hurting terribly!</font></b>"
+	//if(burning)
+	//	switch(amount)
+	//		if(1 to 10)
+	//			msg = "<span class='danger'>Your [partname] burns.</span>"
+	//			flash_weakest_pain()
+	//		if(11 to 90)
+	//			flash_weak_pain()
+	//			msg = "<span class='danger'><font size=2>Your [partname] burns badly!</font></span>"
+	//		if(91 to 10000)
+	//			flash_pain()
+	//			msg = "<span class='danger'><font size=3>OH GOD! Your [partname] is on fire!</font></span>"
+	//else
+	switch(amount)
+		if(1 to 10)
+			msg = "<b>Your [partname] hurts.</b>"
+			flash_weakest_pain()
+		if(11 to 90)
+			flash_weak_pain()
+			msg = "<b><font size=2>Your [partname] hurts badly.</font></b>"
+			if(prob(25))
+				agony_moan()
+		if(91 to 10000)
+			flash_pain()
+			msg = "<b><font size=3>OH GOD! Your [partname] is hurting terribly!</font></b>"
+			if(prob(50))
+				agony_scream()
 	if(msg && (msg != last_pain_message || prob(10)))
 		last_pain_message = msg
 		src << msg
@@ -50,7 +62,7 @@ mob/living/carbon/proc/pain(var/partname, var/amount, var/force, var/burning = 0
 
 // message is the custom message to be displayed
 // flash_strength is 0 for weak pain flash, 1 for strong pain flash
-mob/living/carbon/human/proc/custom_pain(var/message, var/flash_strength)
+mob/living/carbon/human/proc/custom_pain(var/message, var/flash_strength = 0)
 	if(stat >= 1) 
 		return
 	if(species.flags & NO_PAIN) 
@@ -62,13 +74,16 @@ mob/living/carbon/human/proc/custom_pain(var/message, var/flash_strength)
 	if(analgesic)
 		return
 	var/msg = "<span class='danger'>[message]</span>"
-	if(flash_strength >= 1)
+	if(flash_strength)
 		msg = "<span class='danger'><font size=3>[message]</font></span>"
 
 	// Anti message spam checks
 	if(msg && ((msg != last_pain_message) || (world.time >= next_pain_time)))
 		last_pain_message = msg
 		src << msg
+		flash_weak_pain()
+		if(flash_strength)
+			flash_pain()
 	next_pain_time = world.time + 100
 
 mob/living/carbon/human/proc/handle_pain()

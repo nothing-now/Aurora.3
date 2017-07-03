@@ -171,7 +171,7 @@
 	if(owner)
 		replaced(owner)
 		sync_colour_to_human(owner)
-		
+
 	addtimer(CALLBACK(src, .proc/get_icon), 1)
 
 	if ((status & ORGAN_PLANT))
@@ -721,6 +721,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 					"<span class='danger'>\The [owner]'s [src.name] flies off in an arc!</span>",\
 					"<span class='moderate'><b>Your [src.name] goes flying off!</b></span>",\
 					"<span class='danger'>You hear a terrible sound of [gore_sound].</span>")
+			playsound(loc, 'sound/effects/gore/severed.ogg', 50, 1, -1)
 		if(DROPLIMB_BURN)
 			var/gore = "[(status & ORGAN_ROBOT) ? "": " of burning flesh"]"
 			owner.visible_message(
@@ -734,6 +735,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 				"<span class='danger'>\The [owner]'s [src.name] explodes[gore]!</span>",\
 				"<span class='moderate'><b>Your [src.name] explodes[gore]!</b></span>",\
 				"<span class='danger'>You hear the [gore_sound].</span>")
+			playsound(loc, 'sound/effects/gore/chop6.ogg', 50, 1, -1)
 
 	var/mob/living/carbon/human/victim = owner //Keep a reference for post-removed().
 	var/obj/item/organ/external/parent_organ = parent
@@ -892,8 +894,10 @@ Note that amputating the affected organ does in fact remove the infection from t
 			"<span class='warning'>You hear a loud cracking sound coming from \the [owner].</span>",\
 			"<span class='danger'>Something feels like it shattered in your [name]!</span>",\
 			"You hear a sickening crack.")
+		playsound(loc, "trauma", 50, 1, -1)
 		if(owner.species && !(owner.species.flags & NO_PAIN))
-			owner.emote("scream")
+			owner.agony_scream()
+			//owner.emote("scream")
 
 	status |= ORGAN_BROKEN
 	broken_description = pick("Broken","Fracture","Hairline fracture")

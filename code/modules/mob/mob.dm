@@ -29,8 +29,8 @@
 	if (istype(src, /mob/living))
 		ghostize()
 
-	return ..() 
-	
+	return ..()
+
 
 /mob/proc/remove_screen_obj_references()
 	flash = null
@@ -211,7 +211,7 @@
 
 /mob/proc/is_physically_disabled()
 	return incapacitated(INCAPACITATION_DISABLED)
-	
+
 /mob/proc/cannot_stand()
 	return incapacitated(INCAPACITATION_KNOCKDOWN)
 
@@ -746,7 +746,7 @@
 							LAZYREMOVE(client.holder.watched_processes, ctrl)
 						else
 							ctrl.stat_entry()
-						
+
 			if(statpanel("MC"))
 				stat("CPU:", world.cpu)
 				stat("Tick Usage:", world.tick_usage)
@@ -766,7 +766,7 @@
 					for(var/datum/controller/subsystem/SS in Master.subsystems)
 						if (!Master.initializing && SS.flags & SS_NO_DISPLAY)
 							continue
-					
+
 						SS.stat_entry()
 
 		if(listed_turf && client)
@@ -970,9 +970,6 @@
 /mob/proc/get_species(var/reference = 0)
 	return ""
 
-/mob/proc/flash_weak_pain()
-	flick("weak_pain",pain)
-
 /mob/proc/get_visible_implants(var/class = 0)
 	var/list/visible_implants = list()
 	for(var/obj/item/O in embedded)
@@ -1175,11 +1172,11 @@ mob/proc/yank_out_object()
 	if (dest != loc && istype(dest, /atom/movable))
 		AM = dest
 		LAZYADD(AM.contained_mobs, src)
-	
+
 	if (istype(loc, /atom/movable))
 		AM = loc
 		LAZYREMOVE(AM.contained_mobs, src)
-	
+
 	. = ..()
 
 /mob/verb/northfaceperm()

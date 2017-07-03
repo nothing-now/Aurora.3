@@ -163,6 +163,7 @@ emp_act
 		target_zone = user.zone_sel.selecting
 	if(!target_zone)
 		visible_message("<span class='danger'>[user] misses [src] with \the [I]!</span>")
+		playsound(loc, 'sound/weapons/punchmiss.ogg', 50, 1, -1)
 		return 0
 
 	//var/obj/item/organ/external/affecting = get_organ(target_zone)
@@ -173,6 +174,7 @@ emp_act
 	var/obj/item/organ/external/affecting = get_organ(hit_zone)
 	if (!affecting || affecting.is_stump())
 		user << "<span class='danger'>They are missing that limb!</span>"
+		playsound(loc, 'sound/weapons/punchmiss.ogg', 50, 1, -1)
 		return null
 
 	return hit_zone

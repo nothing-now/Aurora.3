@@ -534,10 +534,17 @@
 			else
 				if (!muzzled)
 					message = "screams!"
+					if(gender == FEMALE)
+						if(species.female_scream_sound)
+							playsound(src, species.female_scream_sound, 50)
+					else
+						if(species.male_scream_sound)
+							playsound(src, species.male_scream_sound, 50)
 					m_type = 2
 				else
 					message = "makes a very loud noise."
 					m_type = 2
+					playsound(src.loc, "sound/voice/gagscream[rand(1,3)].wav", 50, 0)
 
 		if("swish")
 			src.animate_tail_once()
@@ -680,3 +687,40 @@ wink, yawn, swish, sway/wag, fastsway/qwag, stopsway/swag, beep, ping, buzz"}
 	HTML +="<a href='?src=\ref[src];flavor_change=done'>\[Done\]</a>"
 	HTML += "<tt>"
 	src << browse(HTML, "window=flavor_changes;size=430x300")
+
+
+//THESE ARE SEPERATE FOR A REASON! I DO NOT WANT PLAYERS BEING ABLE TO JUST MAKE THESE SOUNDS AT WILL. THEY ARE ONLY FOR SPECIFIC MOMENTS OUTSIDE OF THE PLAYERS' CONTROL
+mob/proc/agony_scream()
+	var/muzzled = istype(src.wear_mask, /obj/item/clothing/mask/muzzle)
+	if(ishuman(src))
+		var/message = null
+		var/mob/living/carbon/human/H = src
+		if(!muzzled)
+			if(gender == FEMALE)
+				if(H.species.female_pain_sounds)
+					playsound(src, pick(H.species.female_pain_sounds), 50)
+			else
+				if(H.species.male_pain_sounds)
+					playsound(src, pick(H.species.male_pain_sounds), 50)
+			message = "screams in agaony!"
+		else
+			message = "makes a loud noise!"
+			playsound(loc, "sound/voice/gagscream[rand(1,3)].wav", 50, 0)
+		if(message)
+			visible_message("[H.name] [message]")
+
+mob/proc/agony_moan()
+	var/muzzled = istype(src.wear_mask, /obj/item/clothing/mask/muzzle)
+	if(ishuman(src))
+		var/message = null
+		var/mob/living/carbon/human/H = src
+		if(!muzzled)
+			if(gender == FEMALE)
+				if(H.species.female_moan_sounds)
+					playsound(src, pick(H.species.female_moan_sounds), 50)
+			else
+				if(H.species.male_pain_sounds)
+					playsound(src, pick(H.species.male_moan_sounds), 50)
+			message = "moans in agony!"
+		if(message)
+			visible_message("[H.name] [message]")
