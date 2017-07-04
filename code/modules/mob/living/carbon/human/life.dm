@@ -74,6 +74,8 @@
 		//stuff in the stomach
 		handle_stomach()//This function is in devour.dm
 
+		handle_excrement()//What a shitty proc
+
 		handle_shock()
 
 		handle_pain()
@@ -1253,6 +1255,7 @@
 
 	if(shock_stage == 10)
 		src << "<span class='danger'>[pick("It hurts so much", "You really need some painkillers", "Dear god, the pain")]!</span>"
+		flash_weak_pain()
 
 	if(shock_stage >= 30)
 		if(shock_stage == 30) emote("me",1,"is having trouble keeping their eyes open.")
@@ -1267,11 +1270,13 @@
 		if (prob(2))
 			src << "<span class='danger'>[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!</span>"
 			Weaken(20)
+			flash_pain()
 
 	if(shock_stage >= 80)
 		if (prob(5))
 			src << "<span class='danger'>[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!</span>"
 			Weaken(20)
+			flash_pain()
 
 	if(shock_stage >= 120)
 		if (prob(2))

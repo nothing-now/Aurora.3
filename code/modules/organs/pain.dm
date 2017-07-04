@@ -49,9 +49,11 @@ mob/living/carbon/proc/pain(var/partname, var/amount, var/force, var/burning = 0
 			msg = "<b><font size=2>Your [partname] hurts badly.</font></b>"
 			if(prob(25))
 				agony_moan()
+				stuttering += 5
 		if(91 to 10000)
 			flash_pain()
 			msg = "<b><font size=3>OH GOD! Your [partname] is hurting terribly!</font></b>"
+			stuttering += 10
 			if(prob(50))
 				agony_scream()
 	if(msg && (msg != last_pain_message || prob(10)))

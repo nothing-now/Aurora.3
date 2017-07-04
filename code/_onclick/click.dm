@@ -56,7 +56,11 @@
 		return 1
 	if(modifiers["middle"])
 		MiddleClickOn(A)
+	
+	if(modifiers["middle"] && modifiers["shift"])
+		ShiftMiddleClickOn(A)
 		return 1
+		
 	if(modifiers["shift"])
 		ShiftClickOn(A)
 		return 0
@@ -243,6 +247,15 @@
 	if(user.client && user.client.eye == user)
 		user.examinate(src)
 	return
+
+//used for pointing
+/mob/proc/ShiftMiddleClickOn(var/atom/A)
+	A.ShiftMiddleClick(src)
+	return
+
+/atom/proc/ShiftMiddleClick(var/mob/user)
+	user.pointed(src)
+
 
 /*
 	Ctrl click

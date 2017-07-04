@@ -172,6 +172,7 @@
 				attack_generic(H,rand(1,3),"punched")
 				return
 
+			H.stamina -= rand(1,5)
 			var/rand_damage = rand(1, 5)
 			var/block = 0
 			var/accurate = 0
@@ -281,6 +282,7 @@
 			apply_damage(real_damage, (attack.deal_halloss ? HALLOSS : BRUTE), affecting, armour, sharp=attack.sharp, edge=attack.edge)
 
 		if(I_DISARM)
+			M.stamina -= rand(2,5)
 			M.attack_log += text("\[[time_stamp()]\] <font color='red'>Disarmed [src.name] ([src.ckey])</font>")
 			src.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been disarmed by [M.name] ([M.ckey])</font>")
 

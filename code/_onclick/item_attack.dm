@@ -70,6 +70,11 @@ avoid code duplication. This includes items that may sometimes act as a standard
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(M)
 
+	var/wait = 3
+	wait += w_class
+	if(force)//Stamina is trained when you attack.
+		user.stamina -= wait
+
 	var/hit_zone = M.resolve_item_attack(src, user, target_zone)
 	if(hit_zone)
 		apply_hit_effect(M, user, hit_zone)

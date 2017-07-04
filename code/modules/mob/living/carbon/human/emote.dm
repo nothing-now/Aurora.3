@@ -546,6 +546,12 @@
 					m_type = 2
 					playsound(src.loc, "sound/voice/gagscream[rand(1,3)].wav", 50, 0)
 
+		if("poo")
+			src.handle_shit()
+		
+		if("pee")
+			src.handle_piss()
+
 		if("swish")
 			src.animate_tail_once()
 
@@ -690,7 +696,7 @@ wink, yawn, swish, sway/wag, fastsway/qwag, stopsway/swag, beep, ping, buzz"}
 
 
 //THESE ARE SEPERATE FOR A REASON! I DO NOT WANT PLAYERS BEING ABLE TO JUST MAKE THESE SOUNDS AT WILL. THEY ARE ONLY FOR SPECIFIC MOMENTS OUTSIDE OF THE PLAYERS' CONTROL
-mob/proc/agony_scream()
+/mob/proc/agony_scream()
 	var/muzzled = istype(src.wear_mask, /obj/item/clothing/mask/muzzle)
 	if(ishuman(src))
 		var/message = null
@@ -702,14 +708,14 @@ mob/proc/agony_scream()
 			else
 				if(H.species.male_pain_sounds)
 					playsound(src, pick(H.species.male_pain_sounds), 50)
-			message = "screams in agaony!"
+			message = "screams in agony!"
 		else
 			message = "makes a loud noise!"
 			playsound(loc, "sound/voice/gagscream[rand(1,3)].wav", 50, 0)
 		if(message)
 			visible_message("[H.name] [message]")
 
-mob/proc/agony_moan()
+/mob/proc/agony_moan()
 	var/muzzled = istype(src.wear_mask, /obj/item/clothing/mask/muzzle)
 	if(ishuman(src))
 		var/message = null

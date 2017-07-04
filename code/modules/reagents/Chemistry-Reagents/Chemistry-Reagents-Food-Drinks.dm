@@ -69,6 +69,7 @@
 /datum/reagent/nutriment/proc/digest(var/mob/living/carbon/M, var/removed)
 	M.heal_organ_damage(regen_factor * removed, 0)
 	M.nutrition += nutriment_factor * removed // For hunger and fatness
+	M.bowels += nutriment_factor * removed	//For pooping
 	M.add_chemical_effect(CE_BLOODRESTORE, blood_factor * removed)
 
 

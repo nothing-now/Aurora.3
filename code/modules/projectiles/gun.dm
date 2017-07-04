@@ -244,9 +244,9 @@
 			set_light(muzzle_flash)
 			addtimer(CALLBACK(src, /atom/.proc/set_light, 0), 2)
 
-	if(recoil)
-		spawn()
-			shake_camera(user, recoil+1, recoil)
+	//if(recoil)
+	//	spawn()
+	//		shake_camera(user, recoil+1, recoil)
 	update_icon()
 
 
