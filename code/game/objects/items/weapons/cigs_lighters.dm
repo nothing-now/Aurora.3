@@ -100,14 +100,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	flags |= NOREACT // so it doesn't react until you light it
 	create_reagents(chem_volume) // making the cigarrete a chemical holder with a maximum volume of 15
 
-/obj/item/clothing/mask/smokable/process()
-	var/turf/location = get_turf(src)
-	smoketime--
-	if(smoketime < 1)
-		die()
-		return
-	if(location)
-		location.hotspot_expose(700, 5)
+/obj/item/clothing/mask/smokable/proc/smoke(amount)
+	smoketime -= amount
 	if(reagents && reagents.total_volume) // check if it has any reagents at all
 		if(ishuman(loc))
 			var/mob/living/carbon/human/C = loc
@@ -115,6 +109,16 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 				reagents.trans_to_mob(C, REM, CHEM_INGEST, 0.2) // Most of it is not inhaled... balance reasons.
 		else // else just remove some of the reagents
 			reagents.remove_any(REM)
+
+/obj/item/clothing/mask/smokable/process()
+	var/turf/location = get_turf(src)
+	smoke(1)
+	if(smoketime < 1)
+		die()
+		return
+	if(location)
+		location.hotspot_expose(700, 5)
+	
 
 /obj/item/clothing/mask/smokable/proc/light(var/flavor_text = "[usr] lights the [name].")
 	if(!src.lit)
@@ -145,6 +149,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		T.visible_message(flavor_text)
 		set_light(2, 0.25, "#E38F46")
 		processing_objects.Add(src)
+		playsound(src.loc, 'sound/items/cig_light.ogg', 75, 1)
 
 /obj/item/clothing/mask/smokable/proc/die(var/nomessage = 0)
 	var/turf/T = get_turf(src)
@@ -243,6 +248,17 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if(lit == 1)
 		user.visible_message("<span class='notice'>[user] calmly drops and treads on the lit [src], putting it out instantly.</span>")
 		die(1)
+	return ..()
+
+/obj/item/clothing/mask/smokable/cigarette/attack(mob/living/carbon/human/H, mob/user, def_zone)
+	if(lit && H == user && istype(H))
+		var/obj/item/blocked = H.check_mouth_coverage()
+		if(blocked)
+			to_chat(H, "<span class='warning'>\The [blocked] is in the way!</span>")
+			return 1
+		H.visible_message("<span class='notice'>[H.name] takes a drag of their [name].</span>")
+		smoke(5)
+		return 1
 	return ..()
 
 ////////////

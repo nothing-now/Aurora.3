@@ -713,7 +713,7 @@ wink, yawn, swish, sway/wag, fastsway/qwag, stopsway/swag, beep, ping, buzz"}
 			message = "makes a loud noise!"
 			playsound(loc, "sound/voice/gagscream[rand(1,3)].wav", 50, 0)
 		if(message)
-			visible_message("[H.name] [message]")
+			custom_emote(2,message)
 
 /mob/proc/agony_moan()
 	var/muzzled = istype(src.wear_mask, /obj/item/clothing/mask/muzzle)
@@ -729,4 +729,4 @@ wink, yawn, swish, sway/wag, fastsway/qwag, stopsway/swag, beep, ping, buzz"}
 					playsound(src, pick(H.species.male_moan_sounds), 50)
 			message = "moans in agony!"
 		if(message)
-			visible_message("[H.name] [message]")
+			custom_emote(2,message)

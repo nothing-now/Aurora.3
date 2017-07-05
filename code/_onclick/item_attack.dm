@@ -72,7 +72,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 
 	var/wait = 3
 	wait += w_class
-	if(force)//Stamina is trained when you attack.
+	if(force)//Stamina is drained when you attack.
 		user.stamina -= wait
 
 	var/hit_zone = M.resolve_item_attack(src, user, target_zone)

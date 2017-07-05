@@ -14,6 +14,7 @@
 	w_class = 4.0
 	force = 10
 	var/recentpump = 0
+	load_sound = 'sound/weapons/guns/interact/rifle_load.ogg'
 
 	action_button_name = "Wield rifle"
 

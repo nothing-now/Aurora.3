@@ -1,11 +1,11 @@
 // BEGIN_INTERNALS
 /*
-LAST_COMPILE_TIME: 1499126055
-DIR: code code\_onclick code\modules code\modules\mob code\modules\mob\living code\modules\mob\living\carbon code\modules\mob\living\carbon\human icons icons\mob\screen icons\obj 
+LAST_COMPILE_TIME: 1499199957
+DIR: code code\game code\game\objects code\game\objects\items code\game\objects\items\weapons code\modules code\modules\projectiles code\modules\projectiles\guns code\modules\projectiles\guns\projectile icons icons\obj maps\aurora-2 
 AUTO_FILE_DIR: OFF
 MAP_ICON_TYPE: 0
 LAST_COMPILE_VERSION: 511.1385
-WINDOW: icons\obj\projectiles.dmi;icons\obj\sac.dmi;icons\obj\stock_parts.dmi;icons\obj\storage.dmi;icons\obj\items.dmi;icons\turf\flooring\tiles.dmi;icons\mob\screen\midnight.dmi;icons\mob\screen\old-noborder.dmi;icons\mob\screen\old.dmi;icons\mob\screen\white.dmi;icons\mob\screen\orange.dmi;icons\obj\vending.dmi
-FILE: icons\obj\vending.dmi
+WINDOW: icons\obj\lockwall.dmi;icons\obj\closet.dmi;icons\obj\narsie.dmi;icons\obj\pda.dmi;icons\obj\power.dmi;icons\obj\tactshield.dmi;icons\obj\tables.dmi;icons\obj\cigarettes.dmi;code\game\objects\items\weapons\cigs_lighters.dm
+FILE: code\game\objects\items\weapons\cigs_lighters.dm
 */
 // END_INTERNALS

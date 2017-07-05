@@ -10,6 +10,10 @@
 	ammo_type = /obj/item/ammo_casing/a357
 	fire_sound = 'sound/weapons/revolver_shoot.ogg'
 	var/chamber_offset = 0 //how many empty chambers in the cylinder until you hit a round
+	load_sound = 'sound/weapons/guns/interact/rev_magout.ogg'
+	unload_sound = 'sound/weapons/guns/interact/rev_magin.ogg'
+	cock_sound = 'sound/weapons/guns/interact/rev_cock.ogg'
+	magazine_based
 
 /obj/item/weapon/gun/projectile/revolver/verb/spin_cylinder()
 	set name = "Spin cylinder"

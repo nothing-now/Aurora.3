@@ -69,6 +69,10 @@
 	multi_aim = 1
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
+	load_sound = 'sound/weapons/guns/interact/smg_magin.ogg'
+	unload_sound = 'sound/weapons/guns/interact/smg_magout.ogg'
+	cock_sound = 'sound/weapons/guns/interact/smg_cock.ogg'
+
 
 /obj/item/weapon/gun/projectile/tanto
 	desc = "A Necropolis Industries Tanto .40, designed to compete with the NT Mk58. Uses 10mm rounds."
@@ -118,6 +122,9 @@
 	magazine_type = /obj/item/ammo_magazine/a50
 	allowed_magazines = list(/obj/item/ammo_magazine/a50)
 	auto_eject = 1
+	load_sound = 'sound/weapons/guns/interact/hpistol_magin.ogg'
+	unload_sound = 'sound/weapons/guns/interact/hpistol_magout.ogg'
+	cock_sound = 'sound/weapons/guns/interact/hpistol_cock.ogg'
 
 /obj/item/weapon/gun/projectile/deagle/gold
 	desc = "A gold plated gun folded over a million times by superior martian gunsmiths. Uses .50 AE ammo."

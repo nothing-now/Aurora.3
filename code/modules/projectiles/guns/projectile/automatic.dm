@@ -12,6 +12,9 @@
 	multi_aim = 1
 	burst_delay = 2
 	sel_mode = 1
+	load_sound = 'sound/weapons/guns/interact/smg_magin.ogg'
+	unload_sound = 'sound/weapons/guns/interact/smg_magout.ogg'
+	cock_sound = 'sound/weapons/guns/interact/smg_cock.ogg'
 
 	firemodes = list(
 		list(mode_name="semiauto",       burst=1, fire_delay=0,    move_delay=null, burst_accuracy=null, dispersion=null),
@@ -98,6 +101,9 @@
 	fire_sound = 'sound/weapons/rifleshot.ogg'
 	magazine_type = /obj/item/ammo_magazine/c762
 	allowed_magazines = list(/obj/item/ammo_magazine/c762)
+	load_sound = 'sound/weapons/guns/interact/batrifle_magin.ogg'
+	unload_sound = 'sound/weapons/guns/interact/batrifle_magout.ogg'
+	cock_sound = 'sound/weapons/guns/interact/batrifle_cock.ogg'
 
 	firemodes = list(
 		list(mode_name="semiauto",       burst=1, fire_delay=10,    move_delay=null, burst_accuracy=null, dispersion=null),
@@ -159,6 +165,9 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/a556)
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
+	load_sound = 'sound/weapons/guns/interact/sfrifle_magin.ogg'
+	unload_sound = 'sound/weapons/guns/interact/sfrifle_magout.ogg'
+	cock_sound = 'sound/weapons/guns/interact/sfrifle_cock.ogg'
 
 	burst_delay = 4
 	firemodes = list(
@@ -226,6 +235,9 @@
 	fire_sound = 'sound/weapons/gunshot_saw.ogg'
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a762
+	load_sound = 'sound/weapons/guns/interact/lmg_magin.ogg'
+	unload_sound = 'sound/weapons/guns/interact/lmg_magout.ogg'
+	cock_sound = 'sound/weapons/guns/interact/lmg_cock.ogg'
 
 	firemodes = list(
 		list(mode_name="short bursts",	burst=5, move_delay=6, burst_accuracy = list(0,-1,-1,-2,-2),          dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
@@ -243,6 +255,11 @@
 /obj/item/weapon/gun/projectile/automatic/rifle/l6_saw/proc/toggle_cover(mob/user)
 	cover_open = !cover_open
 	user << "<span class='notice'>You [cover_open ? "open" : "close"] [src]'s cover.</span>"
+	if(cover_open)
+		playsound(src.loc, 'sound/weapons/guns/interact/lmg_open.ogg', 50, 1)
+	else
+		playsound(src.loc, 'sound/weapons/guns/interact/lmg_close.ogg', 50, 1)
+
 	update_icon()
 
 /obj/item/weapon/gun/projectile/automatic/rifle/l6_saw/attack_self(mob/user as mob)

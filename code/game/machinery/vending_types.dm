@@ -209,18 +209,28 @@
 	icon_state = "cigs"
 	products = list(
 		/obj/item/weapon/storage/fancy/cigarettes = 10,
+		/obj/item/weapon/storage/fancy/cigarettes/luckystars = 5,
+		/obj/item/weapon/storage/fancy/cigarettes/jerichos = 5,
+		/obj/item/weapon/storage/fancy/cigarettes/menthols = 5,
+		/obj/item/weapon/storage/fancy/cigarettes/carcinomas = 5,
+		/obj/item/weapon/storage/fancy/cigarettes/professionals = 5,
 		/obj/item/weapon/storage/box/matches = 10,
 		/obj/item/weapon/flame/lighter/random = 4
 	)
 	contraband = list(
-		/obj/item/weapon/flame/lighter/zippo = 4
+		/obj/item/weapon/storage/fancy/cigarettes/killthroat = 5
 	)
 	premium = list(
 		/obj/item/weapon/storage/fancy/cigar = 5,
-		/obj/item/weapon/storage/fancy/cigarettes/killthroat = 5
+		/obj/item/weapon/flame/lighter/zippo = 4
 	)
 	prices = list(
 		/obj/item/weapon/storage/fancy/cigarettes = 510,
+		/obj/item/weapon/storage/fancy/cigarettes/luckystars = 510,
+		/obj/item/weapon/storage/fancy/cigarettes/jerichos = 510,
+		/obj/item/weapon/storage/fancy/cigarettes/menthols = 510,
+		/obj/item/weapon/storage/fancy/cigarettes/carcinomas = 510,
+		/obj/item/weapon/storage/fancy/cigarettes/professionals = 510,
 		/obj/item/weapon/storage/box/matches = 12,
 		/obj/item/weapon/flame/lighter/random = 12
 	)

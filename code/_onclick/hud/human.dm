@@ -333,6 +333,14 @@
 	mymob.pain.mouse_opacity = 0
 	hud_elements |= mymob.pain
 
+	mymob.noise = new /obj/screen()
+	mymob.noise.icon = 'icons/mob/noise.dmi'
+	mymob.noise.icon_state = pick("1", "2", "3")
+	mymob.noise.name = " "
+	mymob.noise.screen_loc = "1,1 to 15,15"
+	mymob.noise.mouse_opacity = 0
+	hud_elements |= mymob.noise 
+
 	mymob.zone_sel = new /obj/screen/zone_sel( null )
 	mymob.zone_sel.icon = ui_style
 	mymob.zone_sel.color = ui_color

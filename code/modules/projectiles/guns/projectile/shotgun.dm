@@ -15,6 +15,9 @@
 	handle_casings = HOLD_CASINGS
 	fire_sound = 'sound/weapons/shotgun.ogg'
 	var/recentpump = 0 // to prevent spammage
+	load_sound = 'sound/weapons/guns/interact/shotgun_insert.ogg'
+	magazine_based = 0
+	
 
 	action_button_name = "Wield rifle"
 
