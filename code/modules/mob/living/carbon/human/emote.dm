@@ -727,6 +727,6 @@ wink, yawn, swish, sway/wag, fastsway/qwag, stopsway/swag, beep, ping, buzz"}
 			else
 				if(H.species.male_pain_sounds)
 					playsound(src, pick(H.species.male_moan_sounds), 50)
-			message = "moans in agony!"
+			message = "moans in pain."
 		if(message)
 			custom_emote(2,message)
