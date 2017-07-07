@@ -1,11 +1,11 @@
 // BEGIN_INTERNALS
 /*
-LAST_COMPILE_TIME: 1499199957
-DIR: code code\game code\game\objects code\game\objects\items code\game\objects\items\weapons code\modules code\modules\projectiles code\modules\projectiles\guns code\modules\projectiles\guns\projectile icons icons\obj maps\aurora-2 
+LAST_COMPILE_TIME: 1499401800
+DIR: code code\game code\game\objects code\game\objects\items code\game\objects\items\weapons code\game\objects\items\weapons\material code\modules code\modules\mob code\modules\mob\living code\modules\mob\living\carbon code\modules\mob\living\carbon\human code\modules\projectiles icons icons\mob icons\obj icons\obj\clothing 
 AUTO_FILE_DIR: OFF
 MAP_ICON_TYPE: 0
 LAST_COMPILE_VERSION: 511.1385
-WINDOW: icons\obj\lockwall.dmi;icons\obj\closet.dmi;icons\obj\narsie.dmi;icons\obj\pda.dmi;icons\obj\power.dmi;icons\obj\tactshield.dmi;icons\obj\tables.dmi;icons\obj\cigarettes.dmi;code\game\objects\items\weapons\cigs_lighters.dm
-FILE: code\game\objects\items\weapons\cigs_lighters.dm
+WINDOW: icons\turf\wall_masks.dmi;icons\obj\ammo.dmi;icons\obj\clothing\masks.dmi;icons\mob\mask.dmi
+FILE: icons\obj\clothing\masks.dmi
 */
 // END_INTERNALS

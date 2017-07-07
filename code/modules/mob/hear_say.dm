@@ -82,11 +82,15 @@
 	src << "[time] [message]"
 
 /mob/proc/hear_radio(var/message, var/verb="says", var/datum/language/language=null, var/part_a, var/part_b, var/mob/speaker = null, var/hard_to_hear = 0, var/vname ="")
-	
-	playsound(loc, 'sound/effects/radio_chatter.ogg', 25, 0, -1)//They won't always be able to read the message, but the sound will play regardless.
+	var/radio_sound = list('sound/effects/radio1.ogg', 'sound/effects/radio2.ogg', 'sound/effects/radio3.ogg', 'sound/effects/radio4.ogg')
+
 
 	if(!client)
 		return
+
+	if(!isobserver(src))
+		//playsound(loc, 'sound/effects/radio_chatter.ogg', 25, 0, -1)//They won't always be able to read the message, but the sound will play regardless.
+		playsound(loc, pick(radio_sound), 15, 0, -1)
 
 	if(sleeping || stat==1) //If unconscious or sleeping
 		hear_sleep(message)

@@ -118,7 +118,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		return
 	if(location)
 		location.hotspot_expose(700, 5)
-	
+
 
 /obj/item/clothing/mask/smokable/proc/light(var/flavor_text = "[usr] lights the [name].")
 	if(!src.lit)
@@ -247,6 +247,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/clothing/mask/smokable/cigarette/attack_self(mob/user as mob)
 	if(lit == 1)
 		user.visible_message("<span class='notice'>[user] calmly drops and treads on the lit [src], putting it out instantly.</span>")
+		playsound(user, 'sound/effects/cig_snuff.ogg', 25, 1)
 		die(1)
 	return ..()
 
@@ -257,6 +258,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			to_chat(H, "<span class='warning'>\The [blocked] is in the way!</span>")
 			return 1
 		H.visible_message("<span class='notice'>[H.name] takes a drag of their [name].</span>")
+		playsound(H, 'sound/effects/inhale.ogg', 100, 0, -1)
 		smoke(5)
 		return 1
 	return ..()
