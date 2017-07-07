@@ -528,6 +528,8 @@
 					message = "sadly can't find anybody to give daps to, and daps [get_visible_gender() == MALE ? "himself" : get_visible_gender() == FEMALE ? "herself" : "themselves"]. Shameful."
 
 		if ("scream")
+			if(stat)
+				return
 			if (miming)
 				message = "acts out a scream!"
 				m_type = 1
@@ -697,6 +699,8 @@ wink, yawn, swish, sway/wag, fastsway/qwag, stopsway/swag, beep, ping, buzz"}
 
 //THESE ARE SEPERATE FOR A REASON! I DO NOT WANT PLAYERS BEING ABLE TO JUST MAKE THESE SOUNDS AT WILL. THEY ARE ONLY FOR SPECIFIC MOMENTS OUTSIDE OF THE PLAYERS' CONTROL
 /mob/proc/agony_scream()
+	if(stat)
+		return
 	var/muzzled = istype(src.wear_mask, /obj/item/clothing/mask/muzzle)
 	if(ishuman(src))
 		var/message = null
@@ -716,6 +720,8 @@ wink, yawn, swish, sway/wag, fastsway/qwag, stopsway/swag, beep, ping, buzz"}
 			custom_emote(2,message)
 
 /mob/proc/agony_moan()
+	if(stat)
+		return
 	var/muzzled = istype(src.wear_mask, /obj/item/clothing/mask/muzzle)
 	if(ishuman(src))
 		var/message = null

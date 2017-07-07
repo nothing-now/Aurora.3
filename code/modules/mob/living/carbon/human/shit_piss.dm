@@ -99,7 +99,9 @@
 
 /obj/effect/decal/cleanable/urine/New()
 	icon_state = pick(random_icon_states)
-	spawn(10) src.reagents.add_reagent("urine",5)
+	spawn(10) 
+		if(reagents)
+			reagents.add_reagent("urine",5)
 	
 	spawn(800)
 		dried = 1

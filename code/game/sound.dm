@@ -55,6 +55,7 @@ var/list/dirtfootsteps = list('sound/effects/footsteps/dirt1.wav','sound/effects
 var/list/waterfootsteps = list('sound/effects/footsteps/slosh1.wav','sound/effects/footsteps/slosh2.wav','sound/effects/footsteps/slosh3.wav','sound/effects/footsteps/slosh4.wav')
 var/list/sandfootsteps = list('sound/effects/footsteps/sand1.wav','sound/effects/footsteps/sand2.wav','sound/effects/footsteps/sand3.wav','sound/effects/footsteps/sand4.wav')
 var/list/gravelfootsteps = list('sound/effects/footsteps/gravel1.wav','sound/effects/footsteps/gravel2.wav','sound/effects/footsteps/gravel3.wav','sound/effects/footsteps/gravel4.wav')
+var/list/armorfootsteps = list('sound/effects/footsteps/gear1.ogg','sound/effects/footsteps/gear2.ogg','sound/effects/footsteps/gear3.ogg','sound/effects/footsteps/gear4.ogg')
 
 var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","waterstep","sandstep", "gravelstep")
 
@@ -215,4 +216,5 @@ var/const/FALLOFF_SOUNDS = 0.5
 			if ("waterstep") soundin = pick(waterfootsteps)
 			if ("sandstep") soundin = pick(sandfootsteps)
 			if ("gravelstep") soundin = pick(gravelfootsteps)
+			if ("gearstep") soundin = pick(armorfootsteps)
 	return soundin
