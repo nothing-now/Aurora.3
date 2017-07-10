@@ -54,7 +54,9 @@
 
 	if(aiming && aiming.aiming_at) tally += 5 // Iron sights make you slower, it's a well-known fact.
 
-	if (drowsyness) tally += 6
+	if(drowsyness) tally += 6
+
+	if(facing_dir) tally += 5 //Locking direction will slow you down.
 
 	if(FAT in src.mutations)
 		tally += 1.5
@@ -112,7 +114,7 @@
 
 /mob/living/carbon/human/Move()
 	. = ..()
-	if (is_noisy)
+	if (is_noisy && !lying)
 		var/is_wearing_armor = 0
 		if(wear_suit)//If they're wearing armor make an armor sound.
 			var/obj/item/clothing/suit/armor/C = wear_suit

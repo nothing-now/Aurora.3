@@ -1391,6 +1391,7 @@
 #include "code\modules\mob\transform_procs.dm"
 #include "code\modules\mob\typing_indicator.dm"
 #include "code\modules\mob\update_icons.dm"
+#include "code\modules\mob\vision_cone.dm"
 #include "code\modules\mob\dead\death.dm"
 #include "code\modules\mob\dead\observer\login.dm"
 #include "code\modules\mob\dead\observer\logout.dm"

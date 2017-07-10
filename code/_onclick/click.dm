@@ -379,4 +379,6 @@ client/verb/set_context_menu_enabled(Enable as num)
 		if(dx > 0)	direction = EAST
 		else		direction = WEST
 	if(direction != dir)
+		if(facing_dir)
+			facing_dir = direction
 		facedir(direction)

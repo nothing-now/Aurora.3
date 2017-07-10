@@ -1,11 +1,11 @@
 // BEGIN_INTERNALS
 /*
-LAST_COMPILE_TIME: 1499451321
-DIR: code code\game code\game\objects code\game\objects\items code\game\objects\items\weapons code\game\objects\items\weapons\material code\modules code\modules\mob code\modules\mob\living code\modules\mob\living\carbon code\modules\mob\living\carbon\human icons icons\mob maps maps\aurora-2 
+LAST_COMPILE_TIME: 1499567689
+DIR: code code\game code\game\objects code\modules code\modules\mob icons icons\mob icons\mob\screen 
 AUTO_FILE_DIR: OFF
 MAP_ICON_TYPE: 0
 LAST_COMPILE_VERSION: 511.1385
-WINDOW: icons\mob\talk.dmi
-FILE: icons\mob\talk.dmi
+WINDOW: code\game\shuttle_engines.dm
+FILE: code\game\shuttle_engines.dm
 */
 // END_INTERNALS

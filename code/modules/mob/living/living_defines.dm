@@ -72,3 +72,5 @@
 	var/cloaked = 0//Set to 1 by cloaking devices, optimises update_icons
 
 	var/tesla_ignore = 0	// If true, mob is not affected by tesla bolts.
+
+	var/climbed = 0

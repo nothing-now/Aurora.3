@@ -448,6 +448,7 @@ default behaviour is:
 	SetParalysis(0)
 	SetStunned(0)
 	SetWeakened(0)
+	setHalLoss(0)
 
 	// shut down ongoing problems
 	total_radiation = 0
@@ -607,6 +608,11 @@ default behaviour is:
 	if(update_slimes)
 		for(var/mob/living/carbon/slime/M in view(1,src))
 			M.UpdateFeed(src)
+
+	for(var/mob/M in oview(src))
+		M.update_vision_cone()
+
+	update_vision_cone()
 
 /mob/living/verb/resist()
 	set name = "Resist"
@@ -798,3 +804,7 @@ default behaviour is:
 	QDEL_NULL(ingested)
 
 	return ..()
+
+/mob/living/set_dir()
+	..()
+	update_vision_cone()

@@ -258,7 +258,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			to_chat(H, "<span class='warning'>\The [blocked] is in the way!</span>")
 			return 1
 		H.visible_message("<span class='notice'>[H.name] takes a drag of their [name].</span>")
-		playsound(H, 'sound/effects/inhale.ogg', 100, 0, -1)
+		playsound(H, 'sound/effects/inhale.ogg', 25, 0, -1)
 		smoke(5)
 		return 1
 	return ..()
@@ -466,7 +466,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			icon_state = "[base_state]on"
 			item_state = "[base_state]on"
 			playsound(src.loc, activation_sound, 75, 1)
-			if(istype(src, /obj/item/weapon/flame/lighter/zippo) )
+			if(istype(src, /obj/item/weapon/flame/lighter/zippo))
 				user.visible_message("<span class='rose'>Without even breaking stride, [user] flips open and lights [src] in one smooth movement.</span>")
 			else
 				if(prob(95))
@@ -479,14 +479,14 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 						user.apply_damage(2,BURN,"r_hand")
 					user.visible_message("<span class='notice'>After a few attempts, [user] manages to light the [src], they however burn their finger in the process.</span>")
 
-			set_light(2)
+			set_light(2, 1, "#E38F46")
 			processing_objects.Add(src)
 		else
 			lit = 0
 			icon_state = "[base_state]"
 			item_state = "[base_state]"
 			playsound(src.loc, desactivation_sound, 75, 1)
-			if(istype(src, /obj/item/weapon/flame/lighter/zippo) )
+			if(istype(src, /obj/item/weapon/flame/lighter/zippo))
 				user.visible_message("<span class='rose'>You hear a quiet click, as [user] shuts off [src] without even looking at what they're doing.</span>")
 			else
 				user.visible_message("<span class='notice'>[user] quietly shuts off the [src].</span>")

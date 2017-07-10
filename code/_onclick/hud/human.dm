@@ -329,6 +329,7 @@
 	mymob.pain.icon = ui_style
 	mymob.pain.icon_state = "blank"
 	mymob.pain.name = "pain"
+	mymob.pain.layer = 17
 	mymob.pain.screen_loc = "WEST,SOUTH to EAST,NORTH"
 	mymob.pain.mouse_opacity = 0
 	hud_elements |= mymob.pain
@@ -340,6 +341,22 @@
 	mymob.noise.screen_loc = "1,1 to 15,15"
 	mymob.noise.mouse_opacity = 0
 	hud_elements |= mymob.noise 
+
+	mymob.fov = new /obj/screen()
+	mymob.fov.icon = 'icons/mob/hide.dmi'
+	mymob.fov.icon_state = "combat"
+	mymob.fov.name = " "
+	mymob.fov.screen_loc = "1,1"
+	mymob.fov.layer = 17
+	mymob.fov.mouse_opacity = 0
+	hud_elements |= mymob.fov
+
+	mymob.fixeye = new /obj/screen()
+	mymob.fixeye.icon = ui_style
+	mymob.fixeye.icon_state = "fixeye"
+	mymob.fixeye.name = "fixeye"
+	mymob.fixeye.screen_loc = ui_fixeye
+	hud_elements |= mymob.fixeye
 
 	mymob.zone_sel = new /obj/screen/zone_sel( null )
 	mymob.zone_sel.icon = ui_style
