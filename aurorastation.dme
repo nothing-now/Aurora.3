@@ -1,4 +1,4 @@
-// DM Environment file for baystation12.dme.
+// DM Environment file for aurorastation.dme.
 // All manual changes should be made outside the BEGIN_ and END_ blocks.
  // New source code should be placed in .dm files: choose File/New --> Code File.
 // BEGIN_INTERNALS
@@ -214,6 +214,7 @@
 #include "code\datums\server_greeting.dm"
 #include "code\datums\statistic.dm"
 #include "code\datums\supplypacks.dm"
+#include "code\datums\weakref.dm"
 #include "code\datums\diseases\appendicitis.dm"
 #include "code\datums\diseases\beesease.dm"
 #include "code\datums\diseases\brainrot.dm"
@@ -2185,13 +2186,13 @@
 #include "code\ZAS\Zone.dm"
 #include "interface\interface.dm"
 #include "interface\skin.dmf"
-#include "maps\aurora-2\aurora-1_centcomm.dmm"
-#include "maps\aurora-2\aurora-2_under-station.dmm"
-#include "maps\aurora-2\aurora-3_sublevel.dmm"
-#include "maps\aurora-2\aurora-4_mainlevel.dmm"
-#include "maps\aurora-2\aurora-5_interstitial.dmm"
-#include "maps\aurora-2\aurora-6_surface.dmm"
-#include "maps\aurora-2\aurora-7_roof.dmm"
-#include "maps\aurora-2\aurora-8_derelict.dmm"
-#include "maps\aurora-2\aurora-9_space.dmm"
+#include "maps\aurora\aurora-1_centcomm.dmm"
+#include "maps\aurora\aurora-2_under-station.dmm"
+#include "maps\aurora\aurora-3_sublevel.dmm"
+#include "maps\aurora\aurora-4_mainlevel.dmm"
+#include "maps\aurora\aurora-5_interstitial.dmm"
+#include "maps\aurora\aurora-6_surface.dmm"
+#include "maps\aurora\aurora-7_roof.dmm"
+#include "maps\aurora\aurora-8_derelict.dmm"
+#include "maps\aurora\aurora-9_space.dmm"
 // END_INCLUDE

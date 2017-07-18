@@ -274,12 +274,12 @@
 			if(H.gloves && istype(H.gloves,/obj/item/clothing/gloves/force))
 				var/obj/item/clothing/gloves/force/X = H.gloves
 				real_damage *= X.amplification
-			var/armour = run_armor_check(affecting, "melee")
+			var/armour = run_armor_check(hit_zone, "melee")
 			// Apply additional unarmed effects.
 			attack.apply_effects(H, src, armour, rand_damage, hit_zone)
 
 			// Finally, apply damage to target
-			apply_damage(real_damage, (attack.deal_halloss ? HALLOSS : BRUTE), affecting, armour, sharp=attack.sharp, edge=attack.edge)
+			apply_damage(real_damage, (attack.deal_halloss ? HALLOSS : BRUTE), hit_zone, armour, sharp=attack.sharp, edge=attack.edge)
 
 		if(I_DISARM)
 			M.stamina -= rand(2,5)
@@ -321,7 +321,7 @@
 					var/armor_check = run_armor_check(affecting, "melee")
 					apply_effect(3, WEAKEN, armor_check)
 					playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
-					if(armor_check < 2)
+					if(armor_check < 100)
 						visible_message("<span class='danger'>[M] has pushed [src]!</span>")
 					else
 						visible_message("<span class='warning'>[M] attempted to push [src]!</span>")

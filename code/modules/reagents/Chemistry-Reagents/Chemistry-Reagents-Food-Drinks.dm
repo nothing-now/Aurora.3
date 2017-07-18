@@ -175,6 +175,18 @@
 		return
 	..()
 
+/datum/reagent/nutriment/protein/tofu //Good for Skrell!
+	name = "tofu protein"
+	id = "tofu"
+	color = "#fdffa8"
+	taste_description = "tofu"
+
+/datum/reagent/nutriment/protein/tofu/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	if(alien && alien == IS_SKRELL)
+		digest(M,removed) //Skrell are allowed to eat tofu, but not most animal proteins
+		return
+	..()
+
 /datum/reagent/nutriment/protein/seafood // Good for Skrell!
 	name = "seafood protein"
 	id = "seafood"
@@ -602,7 +614,7 @@
 /datum/reagent/spacespice
 	name = "Space Spice"
 	id = "spacespice"
-	description = "An exotic blend of spices for cooking. Definitely not worms."
+	description = "An exotic blend of spices for cooking. It must flow."
 	reagent_state = SOLID
 	color = "#e08702"
 	taste_description = "spices"
@@ -614,7 +626,7 @@
 	description = "A dry mix for making delicious brownies."
 	reagent_state = SOLID
 	color = "#441a03"
-	taste_description = "dough"
+	taste_description = "chocolate"
 
 /* Drinks */
 
@@ -715,7 +727,7 @@
 	id = "limejuice"
 	description = "The sweet-sour juice of limes."
 	color = "#365E30"
-	taste_description = "unbearable sourness"
+	taste_description = "tart citrus"
 	taste_mult = 1.1
 
 	glass_icon_state = "glass_green"
@@ -1535,7 +1547,7 @@
 
 /datum/reagent/ethanol/vodka/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	M.apply_effect(max(M.total_radiation - 1 * removed, 0), IRRADIATE, check_protection = 0)
+	M.apply_effect(max(M.total_radiation - 1 * removed, 0), IRRADIATE, blocked = 0)
 
 /datum/reagent/ethanol/whiskey
 	name = "Whiskey"
