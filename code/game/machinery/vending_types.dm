@@ -188,6 +188,7 @@
 	product_slogans = "Carts to go!"
 	icon_state = "cart"
 	icon_deny = "cart-deny"
+	req_access = list(access_hop)
 	products = list(
 		/obj/item/weapon/cartridge/medical = 10,
 		/obj/item/weapon/cartridge/engineering = 10,
@@ -327,7 +328,6 @@
 	req_access = list(access_security)
 	products = list(
 		/obj/item/weapon/handcuffs = 8,
-		/obj/item/weapon/grenade/flashbang = 4,
 		/obj/item/weapon/grenade/chem_grenade/teargas = 4,
 		/obj/item/device/flash = 5,
 		/obj/item/weapon/reagent_containers/food/snacks/donut/normal = 12,
@@ -386,7 +386,6 @@
 		/obj/item/seeds/appleseed = 3,
 		/obj/item/seeds/poppyseed = 3,
 		/obj/item/seeds/sugarcaneseed = 3,
-		/obj/item/seeds/ambrosiavulgarisseed = 3,
 		/obj/item/seeds/peanutseed = 3,
 		/obj/item/seeds/whitebeetseed = 3,
 		/obj/item/seeds/watermelonseed = 3,
@@ -412,7 +411,8 @@
 		/obj/item/seeds/nettleseed = 2,
 		/obj/item/seeds/reishimycelium = 2,
 		/obj/item/seeds/reishimycelium = 2,
-		/obj/item/seeds/shandseed = 2
+		/obj/item/seeds/shandseed = 2,
+		/obj/item/seeds/ambrosiavulgarisseed = 3
 	)
 	premium = list(
 		/obj/item/toy/waterflower = 1
@@ -435,7 +435,6 @@
 		/obj/item/seeds/appleseed = 15,
 		/obj/item/seeds/poppyseed = 20,
 		/obj/item/seeds/sugarcaneseed = 12,
-		/obj/item/seeds/ambrosiavulgarisseed = 90,
 		/obj/item/seeds/peanutseed = 25,
 		/obj/item/seeds/whitebeetseed = 20,
 		/obj/item/seeds/watermelonseed = 15,

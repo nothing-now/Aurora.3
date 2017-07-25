@@ -220,6 +220,11 @@
 		return
 	..()
 
+/datum/reagent/nutriment/protein/cheese // Also bad for skrell.
+	name = "cheese"
+	id = "cheese"
+	color = "#EDB91F"
+	taste_description = "cheese"
 
 //Fats
 //=========================
@@ -432,6 +437,7 @@
 	id = "glucose"
 	color = "#FFFFFF"
 	injectable = 1
+	taste_description = "sweetness"
 
 /datum/reagent/lipozine // The anti-nutriment.
 	name = "Lipozine"
