@@ -114,18 +114,18 @@
 
 /mob/living/carbon/human/Move()
 	. = ..()
-	if (is_noisy && !lying)
+	if (is_noisy && !stat && !lying)
 		var/is_wearing_armor = 0
 		if(wear_suit)//If they're wearing armor make an armor sound.
 			var/obj/item/clothing/suit/armor/C = wear_suit
 			if(istype(C))
 				is_wearing_armor = 1
 
-		var/turf/T = get_turf(src)
-		if ((T.x == last_x && T.y == last_y) || !T.footstep_sound)
+		var/turf/T = loc
+		if ((x == last_x && y == last_y) || !T.footstep_sound)
 			return
-		last_x = T.x
-		last_y = T.y
+		last_x = x
+		last_y = y
 		if (m_intent == "run")
 			playsound(src, T.footstep_sound, 70, 1)
 			if(is_wearing_armor)

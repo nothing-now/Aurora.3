@@ -460,7 +460,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
@@ -475,6 +475,7 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
+	
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
@@ -486,7 +487,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
@@ -500,7 +501,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
+	icon_state = "4-8"
 	},
 /obj/structure/cable{
 	d1 = 2;
@@ -517,7 +518,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
@@ -538,7 +539,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
@@ -912,7 +913,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
@@ -920,7 +921,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
@@ -929,7 +930,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
@@ -937,7 +938,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
+	icon_state = "4-8"
 	},
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -2880,6 +2881,7 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
+	
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
@@ -4094,6 +4096,7 @@
 	icon_state = "2-8"
 	},
 /obj/machinery/power/sensor{
+	long_range = 1;
 	name = "Powernet Sensor - AI Subgrid";
 	name_tag = "AI Subgrid"
 	},
@@ -6071,7 +6074,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
+	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 10;
@@ -6092,7 +6095,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/sublevel)
@@ -6113,7 +6116,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/sublevel)
@@ -6128,6 +6131,7 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
+	
 	},
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
@@ -6148,6 +6152,7 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
+	
 	},
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
@@ -6168,6 +6173,7 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8";
+	
 	},
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
@@ -6305,7 +6311,7 @@
 	dir = 8;
 	icon_state = "alarm0";
 	pixel_x = 25;
-	pixel_y = 0;
+	pixel_y = 0
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -7576,7 +7582,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
+	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -7598,7 +7604,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
@@ -7621,7 +7627,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/sublevel)
@@ -7638,7 +7644,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
+	icon_state = "4-8"
 	},
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - AI Maint EVA"
@@ -7664,7 +7670,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/sublevel)
@@ -8919,6 +8925,7 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/sensor{
+	long_range = 1;
 	name = "Powernet Sensor - Medical (Sub-level)";
 	name_tag = "Medical (Sub-level)"
 	},
@@ -9624,9 +9631,8 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 8
 	},
-/obj/machinery/camera/network/medbay{
-	c_tag = "Virology Starboard";
-	dir = 8
+/obj/structure/sign/deathsposal{
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/medical/virology)
@@ -10548,10 +10554,6 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/obj/machinery/camera/network/medbay{
-	c_tag = "Virology Starboard";
-	dir = 8
-	},
 /obj/effect/floor_decal/corner/lime{
 	dir = 6
 	},
@@ -11217,6 +11219,7 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/sensor{
+	long_range = 1;
 	name = "Powernet Sensor - Research (Sub-level)";
 	name_tag = "Research (Sub-level)"
 	},
@@ -13805,11 +13808,6 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Virology South";
-	dir = 8;
-	icon_state = "camera"
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing)
 "xB" = (
@@ -15793,6 +15791,9 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 8
 	},
+/obj/structure/sign/deathsposal{
+	pixel_x = 32
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
 "AF" = (
@@ -17377,13 +17378,13 @@
 /area/medical/patient_wing)
 "Dv" = (
 /obj/structure/disposalpipe/junction,
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medbay Equipment Storage";
-	dir = 1
-	},
 /obj/machinery/light,
 /obj/structure/sign/nosmoking_1{
 	pixel_y = -32
+	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Patient Wing Hallway South";
+	dir = 1
 	},
 /turf/simulated/floor/tiled{
 	icon_state = "vault";
@@ -19462,13 +19463,13 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Operating Theatre One"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/medbreak)
 "Ha" = (
 /obj/machinery/vending/cigarette,
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Staff Smoking Lounge"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/medbreak)
 "Hb" = (
@@ -20739,7 +20740,7 @@
 	dir = 8
 	},
 /obj/machinery/camera/network/medbay{
-	c_tag = "Virology Starboard";
+	c_tag = "Medical - Staff Dormitories";
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -20767,7 +20768,7 @@
 	pixel_y = -24
 	},
 /obj/machinery/camera/network/medbay{
-	c_tag = "Medbay Equipment Storage";
+	c_tag = "Medical - Staff Hygiene Facilities";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -21275,6 +21276,9 @@
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk{
 	dir = 4
+	},
+/obj/structure/sign/deathsposal{
+	pixel_x = 32
 	},
 /turf/simulated/floor/plating,
 /area/rnd/mixing)
@@ -22067,7 +22071,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
+	icon_state = "4-8"
 	},
 /obj/machinery/power/sensor{
 	name = "Powernet Sensor - Tesla Output";
@@ -22343,6 +22347,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/sublevel)
+"Mn" = (
+/obj/effect/floor_decal/corner/lime{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Patient Ward Entrance";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/patient_wing)
 
 (1,1,1) = {"
 aa
@@ -30909,7 +30924,7 @@ ad
 ai
 af
 af
-bc
+fu
 af
 bS
 af
@@ -31680,7 +31695,7 @@ ad
 ai
 af
 af
-bc
+fu
 af
 bS
 cl
@@ -32722,7 +32737,7 @@ cm
 cm
 af
 af
-fw
+fr
 aI
 fH
 ai
@@ -45076,7 +45091,7 @@ aa
 aa
 aa
 jJ
-km
+mW
 kJ
 ab
 aa
@@ -45333,7 +45348,7 @@ aa
 aa
 ab
 jK
-kn
+mV
 kK
 ab
 aa
@@ -45590,7 +45605,7 @@ aa
 ab
 ab
 ab
-km
+mW
 ab
 ab
 ab
@@ -45847,7 +45862,7 @@ aa
 ab
 ab
 ab
-km
+mW
 ab
 ab
 ab
@@ -46104,7 +46119,7 @@ aa
 ab
 ab
 ab
-km
+mW
 ab
 bP
 ab
@@ -46361,7 +46376,7 @@ aa
 ab
 ab
 ab
-km
+mW
 ab
 ab
 ab
@@ -46618,7 +46633,7 @@ aa
 ab
 ab
 ab
-km
+mW
 ab
 ab
 ab
@@ -46875,7 +46890,7 @@ aa
 ab
 ab
 ab
-km
+mW
 ab
 ab
 aa
@@ -47132,7 +47147,7 @@ aa
 ab
 ab
 ab
-km
+mW
 ab
 ab
 aa
@@ -47389,7 +47404,7 @@ aa
 ab
 ab
 ab
-km
+mW
 ab
 ab
 aa
@@ -47646,7 +47661,7 @@ aa
 aa
 ab
 ab
-km
+mW
 ab
 ab
 aa
@@ -47903,7 +47918,7 @@ aa
 aa
 ab
 ab
-km
+mW
 ab
 ab
 aa
@@ -48160,7 +48175,7 @@ aa
 aa
 ab
 ab
-km
+mW
 ab
 ab
 aa
@@ -48417,7 +48432,7 @@ aa
 aa
 ab
 ab
-km
+mW
 ab
 aa
 aa
@@ -48674,7 +48689,7 @@ aa
 aa
 aa
 ab
-km
+mW
 ab
 aa
 aa
@@ -48931,7 +48946,7 @@ aa
 aa
 aa
 ab
-km
+mW
 ab
 aa
 aa
@@ -49188,7 +49203,7 @@ aa
 aa
 aa
 ab
-km
+mW
 ab
 aa
 aa
@@ -49445,7 +49460,7 @@ aa
 aa
 ab
 ab
-km
+mW
 ab
 ab
 aa
@@ -49702,7 +49717,7 @@ aa
 aa
 ab
 ab
-km
+mW
 ab
 ab
 aa
@@ -49959,7 +49974,7 @@ aa
 ab
 ab
 ab
-km
+mW
 ab
 ab
 ab
@@ -50216,7 +50231,7 @@ aa
 ab
 ab
 ab
-km
+mW
 ab
 ab
 ab
@@ -50473,7 +50488,7 @@ aa
 ab
 ab
 jJ
-ko
+mX
 kL
 ab
 ab
@@ -62069,7 +62084,7 @@ rm
 rm
 uf
 uP
-vQ
+Mn
 vQ
 xA
 ye

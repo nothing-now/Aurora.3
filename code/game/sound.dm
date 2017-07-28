@@ -86,7 +86,7 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 				M.playsound_local(turf_source, soundin, vol, vary, frequency, falloff, is_global, usepressure, environment)
 			var/z_dist = abs(T.z - turf_source.z)//Playing sound on a z-level above or below you.
 			if(T && z_dist <= 1)
-				M.playsound_local(turf_source, soundin, vol/(z_dist), vary, frequency, falloff, usepressure, environment)
+				M.playsound_local(turf_source, soundin, vol/(1+z_dist), vary, frequency, falloff, usepressure, environment)
 
 var/const/FALLOFF_SOUNDS = 0.5
 
