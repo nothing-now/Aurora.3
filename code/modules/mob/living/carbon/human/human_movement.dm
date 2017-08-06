@@ -137,3 +137,10 @@
 				if(is_wearing_armor)
 					playsound(src, "gearstep", 40, 1)
 
+/mob/living/carbon/human/mob_has_gravity()
+	. = ..()
+	if(!. && mob_negates_gravity())
+		. = 1
+
+/mob/living/carbon/human/mob_negates_gravity()
+	return (shoes && shoes.negates_gravity())
