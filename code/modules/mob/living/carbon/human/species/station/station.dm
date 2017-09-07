@@ -5,8 +5,15 @@
 	name_plural = "Humans"
 	bodytype = "Human"
 	age_max = 125
+	economic_modifier = 12
+
 	primitive_form = "Monkey"
-	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/punch, /datum/unarmed_attack/bite)
+	unarmed_types = list(
+		/datum/unarmed_attack/stomp,
+		/datum/unarmed_attack/kick,
+		/datum/unarmed_attack/punch,
+		/datum/unarmed_attack/bite
+	)
 	blurb = "Humanity originated in the Sol system, and over the last four centuries has spread colonies across a wide swathe of space. \
 	They hold a wide range of forms and creeds.<br><br>\
 	The Sol Alliance is still massively influential, but independent human nations have managed to shake off its dominance and forge their \
@@ -21,7 +28,7 @@
 	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_LIPS | HAS_UNDERWEAR | HAS_EYE_COLOR | HAS_SOCKS
 	remains_type = /obj/effect/decal/remains/human
 
-	stamina	=	130			  // Humans can sprint for longer than any other species
+	stamina = 130	// Humans can sprint for longer than any other species
 	stamina_recovery = 5
 	sprint_speed_factor = 0.9
 	sprint_cost_factor = 0.5
@@ -46,7 +53,12 @@
 	deform = 'icons/mob/human_races/r_def_lizard.dmi'
 	tail = "sogtail"
 	tail_animation = 'icons/mob/species/unathi/tail.dmi'
-	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/claws, /datum/unarmed_attack/bite/sharp)
+	unarmed_types = list(
+		/datum/unarmed_attack/stomp,
+		/datum/unarmed_attack/kick,
+		/datum/unarmed_attack/claws,
+		/datum/unarmed_attack/bite/sharp
+	)
 	primitive_form = "Stok"
 	darksight = 3
 	gluttonous = 1
@@ -55,6 +67,7 @@
 	fall_mod = 1.2
 	ethanol_resistance = 0.4
 	taste_sensitivity = TASTE_SENSITIVE
+	economic_modifier = 7
 
 	num_alternate_languages = 2
 	secondary_langs = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
@@ -85,8 +98,8 @@
 	heat_level_3 = 1100 //Default 1000
 
 	inherent_verbs = list(
-	/mob/living/proc/devour,
-	/mob/living/carbon/human/proc/regurgitate
+		/mob/living/proc/devour,
+		/mob/living/carbon/human/proc/regurgitate
 	)
 
 
@@ -121,13 +134,18 @@
 /datum/species/tajaran
 	name = "Tajara"
 	short_name = "taj"
-	name_plural = "Tajaran"
+	name_plural = "Tajara"
 	bodytype = "Tajara"
 	icobase = 'icons/mob/human_races/r_tajaran.dmi'
 	deform = 'icons/mob/human_races/r_def_tajaran.dmi'
 	tail = "tajtail"
 	tail_animation = 'icons/mob/species/tajaran/tail.dmi'
-	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/claws, /datum/unarmed_attack/bite/sharp)
+	unarmed_types = list(
+		/datum/unarmed_attack/stomp,
+		/datum/unarmed_attack/kick,
+		/datum/unarmed_attack/claws,
+		/datum/unarmed_attack/bite/sharp
+	)
 	darksight = 8
 	slowdown = -1
 	brute_mod = 1.2
@@ -137,8 +155,9 @@
 	name_language = LANGUAGE_SIIK_MAAS
 	ethanol_resistance = 0.8//Gets drunk a little faster
 	rarity_value = 2
+	economic_modifier = 7
 
-	stamina	=	90			  // Tajarans evolved to maintain a steady pace in the snow, sprinting wastes energy
+	stamina = 90	// Tajara evolved to maintain a steady pace in the snow, sprinting wastes energy
 	stamina_recovery = 4
 	sprint_speed_factor = 0.65
 	sprint_cost_factor = 0.75
@@ -171,7 +190,7 @@
 		"Your fur prickles in the heat.",
 		"You feel uncomfortably warm.",
 		"Your overheated skin itches."
-		)
+	)
 	cold_discomfort_level = 275
 
 /datum/species/tajaran/equip_survival_gear(var/mob/living/carbon/human/H)
@@ -186,6 +205,7 @@
 	name_plural = "Skrell"
 	bodytype = "Skrell"
 	age_max = 500
+	economic_modifier = 10
 	icobase = 'icons/mob/human_races/r_skrell.dmi'
 	deform = 'icons/mob/human_races/r_def_skrell.dmi'
 	eyes = "skrell_eyes_s"
@@ -216,9 +236,8 @@
 	ethanol_resistance = 0.5//gets drunk faster
 	taste_sensitivity = TASTE_SENSITIVE
 
-	stamina	=	90
+	stamina = 90
 	sprint_speed_factor = 1.25 //Evolved for rapid escapes from predators
-
 
 /datum/species/diona
 	name = "Diona"
@@ -226,11 +245,16 @@
 	name_plural = "Dionaea"
 	bodytype = "Diona"
 	age_max = 1000
+	economic_modifier = 3
 	icobase = 'icons/mob/human_races/r_diona.dmi'
 	deform = 'icons/mob/human_races/r_def_plant.dmi'
 	language = "Ceti Basic"
 	default_language = LANGUAGE_ROOTSONG
-	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/diona)
+	unarmed_types = list(
+		/datum/unarmed_attack/stomp,
+		/datum/unarmed_attack/kick,
+		/datum/unarmed_attack/diona
+	)
 	//primitive_form = "Nymph"
 	slowdown = 7
 	rarity_value = 4
@@ -240,9 +264,9 @@
 	show_ssd = "completely quiescent"
 	num_alternate_languages = 1
 	name_language = "Rootsong"
-	ethanol_resistance = -1//Can't get drunk
+	ethanol_resistance = -1	//Can't get drunk
 	taste_sensitivity = TASTE_DULL
-	mob_size = 12//Worker gestalts are 150kg
+	mob_size = 12	//Worker gestalts are 150kg
 	remains_type = /obj/effect/decal/cleanable/ash //no bones, so, they just turn into dust
 	blurb = "Commonly referred to (erroneously) as 'plant people', the Dionaea are a strange space-dwelling collective \
 	species hailing from Epsilon Ursae Minoris. Each 'diona' is a cluster of numerous cat-sized organisms called nymphs; \
@@ -253,13 +277,13 @@
 	water and other radiation."
 
 	has_organ = list(
-		"nutrient channel" =   /obj/item/organ/diona/nutrients,
-		"neural strata" =      /obj/item/organ/diona/strata,
-		"response node" =      /obj/item/organ/diona/node,
-		"gas bladder" =        /obj/item/organ/diona/bladder,
-		"polyp segment" =      /obj/item/organ/diona/polyp,
+		"nutrient channel"   = /obj/item/organ/diona/nutrients,
+		"neural strata"      = /obj/item/organ/diona/strata,
+		"response node"      = /obj/item/organ/diona/node,
+		"gas bladder"        = /obj/item/organ/diona/bladder,
+		"polyp segment"      = /obj/item/organ/diona/polyp,
 		"anchoring ligament" = /obj/item/organ/diona/ligament
-		)
+	)
 
 	has_limbs = list(
 		"chest" =  list("path" = /obj/item/organ/external/chest/diona),
@@ -273,7 +297,7 @@
 		"r_hand" = list("path" = /obj/item/organ/external/hand/right/diona),
 		"l_foot" = list("path" = /obj/item/organ/external/foot/diona),
 		"r_foot" = list("path" = /obj/item/organ/external/foot/right/diona)
-		)
+	)
 
 	//inherent_verbs = list()
 
@@ -299,8 +323,8 @@
 
 	reagent_tag = IS_DIONA
 
-	stamina	=	-1			  // Diona sprinting uses energy instead of stamina
-	sprint_speed_factor = 0.5		  //Speed gained is minor
+	stamina = -1	// Diona sprinting uses energy instead of stamina
+	sprint_speed_factor = 0.5	//Speed gained is minor
 	sprint_cost_factor = 0.8
 
 /datum/species/diona/handle_sprint_cost(var/mob/living/carbon/H, var/cost)
@@ -332,8 +356,6 @@
 		H << span("danger", "We have expended our energy reserves, and cannot continue to move at such a pace. We must find light!")
 		return 0
 
-
-
 /datum/species/diona/can_understand(var/mob/other)
 	var/mob/living/carbon/alien/diona/D = other
 	if(istype(D))
@@ -361,7 +383,6 @@
 	else//Most of the stuff in the parent function doesnt apply to nymphs
 		add_inherent_verbs(H)
 
-
 /datum/species/diona/handle_death(var/mob/living/carbon/human/H, var/gibbed = 0)
 	if (!gibbed)
 		// This proc sleeps. Async it.
@@ -375,6 +396,7 @@
 	bodytype = "Machine"
 	age_min = 1
 	age_max = 30
+	economic_modifier = 3
 
 	blurb = "IPCs are, quite simply, 'Integrated Positronic Chassis'. In this scenario, positronic does not mean anything significant - it is a nickname given \
 	to all advanced processing units, based on the works of vintage writer Isaac Asimov. The long of the short is that they represent all unbound synthetic \
@@ -432,11 +454,11 @@
 	reagent_tag = IS_MACHINE
 
 	has_organ = list(
-		"brain" = /obj/item/organ/mmi_holder/posibrain,
-		"cell" = /obj/item/organ/cell,
-		"optics" = /obj/item/organ/eyes/optical_sensor,
+		"brain"   = /obj/item/organ/mmi_holder/posibrain,
+		"cell"    = /obj/item/organ/cell,
+		"optics"  = /obj/item/organ/eyes/optical_sensor,
 		"ipc tag" = /obj/item/organ/ipc_tag
-		)
+	)
 
 	vision_organ = "optics"
 
@@ -452,15 +474,15 @@
 		"r_hand" = list("path" = /obj/item/organ/external/hand/right/ipc),
 		"l_foot" = list("path" = /obj/item/organ/external/foot/ipc),
 		"r_foot" = list("path" = /obj/item/organ/external/foot/right/ipc)
-		)
+	)
 
 
 	heat_discomfort_level = 373.15
 	heat_discomfort_strings = list(
 		"Your CPU temperature probes warn you that you are approaching critical heat levels!"
 		)
-	stamina	= -1		  // Machines use power and generate heat, stamina is not a thing
-	sprint_speed_factor = 1	  // About as capable of speed as a human
+	stamina = -1	// Machines use power and generate heat, stamina is not a thing
+	sprint_speed_factor = 1  // About as capable of speed as a human
 
 datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.gender = NEUTER
@@ -484,8 +506,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 /datum/species/machine/handle_death(var/mob/living/carbon/human/H)
 	..()
 	H.h_style = ""
-	spawn(100)
-		if(H) H.update_hair()
+	addtimer(CALLBACK(H, /mob/living/carbon/human/.proc/update_hair), 100)
 
 /datum/species/machine/sanitize_name(var/new_name)
 	return sanitizeName(new_name, allow_numbers = 1)
@@ -597,6 +618,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	bodytype = "Vaurca"
 	age_min = 1
 	age_max = 20
+	economic_modifier = 1
 	language = LANGUAGE_VAURCA
 	primitive_form = "V'krexi"
 	greater_form = "Vaurca Warrior"
