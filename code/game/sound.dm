@@ -46,6 +46,7 @@ var/list/swing_hit_sound = list('sound/weapons/genhit1.ogg', 'sound/weapons/genh
 var/list/hiss_sound = list('sound/voice/hiss1.ogg','sound/voice/hiss2.ogg','sound/voice/hiss3.ogg','sound/voice/hiss4.ogg')
 var/list/page_sound = list('sound/effects/pageturn1.ogg', 'sound/effects/pageturn2.ogg','sound/effects/pageturn3.ogg')
 var/list/trauma_sound = list('sound/effects/gore/trauma1.ogg', 'sound/effects/gore/trauma2.ogg', 'sound/effects/gore/trauma3.ogg')
+var/list/fracture_sound = list('sound/effects/bonebreak1.ogg','sound/effects/bonebreak2.ogg','sound/effects/bonebreak3.ogg','sound/effects/bonebreak4.ogg')
 
 //FOOTSTEPS
 var/list/defaultfootsteps = list('sound/effects/footsteps/tile1.wav','sound/effects/footsteps/tile2.wav','sound/effects/footsteps/tile3.wav','sound/effects/footsteps/tile4.wav')
@@ -208,6 +209,7 @@ var/const/FALLOFF_SOUNDS = 0.5
 			if ("hiss") soundin = pick(hiss_sound)
 			if ("pageturn") soundin = pick(page_sound)
 			if ("trauma") soundin = pick(trauma_sound)
+			if ("fracture") soundin = pick(fracture_sound)
 			//if ("gunshot") soundin = pick(gun_sound)
 			if ("defaultstep") soundin = pick(defaultfootsteps)
 			if ("concretestep") soundin = pick(concretefootsteps)

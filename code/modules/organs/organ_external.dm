@@ -17,6 +17,8 @@
 	var/brute_mod = 1
 	var/burn_mod = 1
 
+	var/robotize_type		// If set, this organ type will automatically be roboticized with this manufacturer.
+
 	var/icon_name = null
 	var/body_part = null
 	var/icon_position = 0
@@ -166,6 +168,9 @@
 	return
 
 /obj/item/organ/external/Initialize(mapload)
+	if (robotize_type)
+		robotize(robotize_type)
+
 	. = ..(mapload, FALSE)
 	if(owner)
 		replaced(owner)
@@ -895,11 +900,12 @@ Note that amputating the affected organ does in fact remove the infection from t
 			"<span class='warning'>You hear a loud cracking sound coming from \the [owner].</span>",\
 			"<span class='danger'>Something feels like it shattered in your [name]!</span>",\
 			"You hear a sickening crack.")
-		playsound(loc, "trauma", 50, 1, -1)
+	
 		if(owner.species && !(owner.species.flags & NO_PAIN))
 			owner.agony_scream()
 			//owner.emote("scream")
 
+	playsound(loc, "trauma", 50, 1, -1)
 	status |= ORGAN_BROKEN
 	broken_description = pick("Broken","Fracture","Hairline fracture")
 	perma_injury = brute_dam

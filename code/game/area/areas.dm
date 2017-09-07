@@ -60,6 +60,7 @@
 	var/allow_nightmode = 0	// if 1, lights in area will be darkened by the night mode controller
 	var/station_area = 0
 	var/centcomm_area = 0
+	var/has_weird_power = FALSE	// If TRUE, SSmachinery will not use the inlined power checks and will call powered() and use_power() on this area.
 
 /area/Initialize(mapload)
 	icon_state = "white"
@@ -326,20 +327,36 @@ var/list/mob/living/forced_ambiance_list = new
 		L << sound(null, channel = 1)
 		forced_ambiance_list -= L
 
-	if(!L.client.ambience_playing)
-		L.client.ambience_playing = 1
-		L << sound('sound/ambience/shipambience.ogg', repeat = 1, wait = 0, volume = 35, channel = 2)
-
-	if(forced_ambience)
+	var/turf/T = get_turf(L)
+	var/hum = 0
+	if(!L.ear_deaf)
+		for(var/obj/machinery/atmospherics/unary/vent_pump/vent in src)
+			if(vent.can_pump())
+				hum = 1
+				break
+	
+	if(forced_ambience)//If there's forced ambience then let it play
 		if(forced_ambience.len)
 			forced_ambiance_list |= L
-			L << sound(pick(forced_ambience), repeat = 1, wait = 0, volume = 25, channel = 1)
+			L.playsound_local(T,sound(pick(forced_ambience), repeat = 1, wait = 0, volume = 25, channel = 2))
 		else
-			L << sound(null, channel = 1)
-	else if(src.ambience.len && prob(35))
+			L << sound(null, channel = 2)
+
+	else if(hum)//Otherwise play the shipambience noise.
+		if(!L.client.ambience_playing)
+			L.client.ambience_playing = 1
+			L << sound('sound/ambience/shipambience.ogg', repeat = 1, wait = 0, volume = 25, channel = 2)
+
+	else//Otherwise nothing.
+		if(L.client.ambience_playing)
+			L.client.ambience_playing = 0
+			L << sound(null, channel = 2)
+
+	
+	if(src.ambience.len && prob(35))//Regardless of that if their is ambience here.
 		if((world.time >= L.client.played + 600))
 			var/sound = pick(ambience)
-			L << sound(sound, repeat = 0, wait = 0, volume = 25, channel = 1)
+			L.playsound_local(T, sound(sound, repeat = 0, wait = 0, volume = 25, channel = 1))
 			L.client.played = world.time
 
 /area/proc/gravitychange(var/gravitystate = 0, var/area/A)
@@ -390,7 +407,7 @@ var/list/mob/living/forced_ambiance_list = new
 	else if(A && A.has_gravity)
 		return 1
 	else
-		if(T && SSmachinery.gravity_generators["[T.z]"] && length(SSmachinery.gravity_generators["[T.z]"]))
+		if(T && length(SSmachinery.gravity_generators))
 			return 1
 	return 0
 

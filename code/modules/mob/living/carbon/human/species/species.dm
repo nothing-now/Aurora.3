@@ -31,6 +31,7 @@
 	var/has_floating_eyes                                // Eyes will overlay over darkness (glow)
 	var/blood_color = "#A10808"                          // Red.
 	var/flesh_color = "#FFC896"                          // Pink.
+	var/examine_color                                    // The color of the species' name in the examine text. Defaults to flesh_color if unset.
 	var/base_color                                       // Used by changelings. Should also be used for icon previes..
 	var/tail                                             // Name of tail state in species effects icon file.
 	var/tail_animation                                   // If set, the icon to obtain tail animation states from.
@@ -78,6 +79,8 @@
 	var/flash_mod =     1                    // Stun from blindness modifier.
 	var/fall_mod =      1                    // Fall damage modifier, further modified by brute damage modifier
 	var/vision_flags = DEFAULT_SIGHT              // Same flags as glasses.
+	var/inherent_eye_protection              // If set, this species has this level of inherent eye protection.
+	var/eyes_are_impermeable = FALSE         // If TRUE, this species' eyes are not damaged by phoron.
 	var/list/breakcuffs = list()                      //used in resist.dm to check if they can break hand/leg cuffs
 
 	// Death vars.
@@ -170,6 +173,7 @@
 		"eyes" =     /obj/item/organ/eyes
 		)
 	var/vision_organ              // If set, this organ is required for vision. Defaults to "eyes" if the species has them.
+	var/breathing_organ           // If set, this organ is required to breathe. Defaults to "lungs" if the species has them.
 
 	var/list/has_limbs = list(
 		"chest" =  list("path" = /obj/item/organ/external/chest),
@@ -204,6 +208,10 @@
 	//If the species has eyes, they are the default vision organ
 	if(!vision_organ && has_organ["eyes"])
 		vision_organ = "eyes"
+
+	// Same, but for lungs.
+	if (!breathing_organ && has_organ["lungs"])
+		breathing_organ = "lungs"
 
 	unarmed_attacks = list()
 	for(var/u_type in unarmed_types)
