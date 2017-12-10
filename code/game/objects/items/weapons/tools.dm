@@ -394,6 +394,7 @@
 				M << "<span class='notice'>You switch the [src] on.</span>"
 			else if(T)
 				T.visible_message("<span class='danger'>\The [src] turns on.</span>")
+			playsound(loc, 'sound/items/WelderActivate.ogg', 50, 1)
 			src.force = 15
 			src.damtype = "fire"
 			src.w_class = 4
@@ -410,6 +411,7 @@
 			M << "<span class='notice'>You switch \the [src] off.</span>"
 		else if(T)
 			T.visible_message("<span class='warning'>\The [src] turns off.</span>")
+		playsound(loc, 'sound/items/WelderDeactivate.ogg', 50, 1)
 		src.force = 3
 		src.damtype = "brute"
 		src.w_class = initial(src.w_class)
@@ -434,6 +436,8 @@
 		if(!E)
 			return
 		var/safety = H.eyecheck()
+		if(H.status_flags & GODMODE)
+			return
 		switch(safety)
 			if(FLASH_PROTECTION_MODERATE)
 				usr << "<span class='warning'>Your eyes sting a little.</span>"

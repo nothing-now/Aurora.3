@@ -80,11 +80,7 @@
 	new /obj/item/weapon/extinguisher(src)
 	new /obj/item/clothing/head/hardhat/red(src)
 
-/obj/structure/closet/firecloset/update_icon()
-	if(!opened)
-		icon_state = icon_closed
-	else
-		icon_state = icon_opened
+
 
 
 /*
@@ -185,6 +181,7 @@
 	icon_state = "hydrant"
 	icon_closed = "hydrant"
 	icon_opened = "hydrant_open"
+	welded_overlay_state = "welded_wallcloset"
 	anchored = 1
 	density = 0
 	wall_mounted = 1
@@ -209,12 +206,7 @@
 	icon_state = "medical_wall"
 	icon_closed = "medical_wall"
 	icon_opened = "medical_wall_open"
+	welded_overlay_state = "welded_wallcloset"
 	anchored = 1
 	density = 0
 	wall_mounted = 1
-
-/obj/structure/closet/medical_wall/update_icon()
-	if(!opened)
-		icon_state = icon_closed
-	else
-		icon_state = icon_opened

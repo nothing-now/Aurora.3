@@ -37,6 +37,9 @@
 			L.client.perspective = EYE_PERSPECTIVE
 			L.client.eye = src
 
+		L.drop_r_hand()
+		L.drop_l_hand()
+
 		L.forceMove(src)
 		L.sdisabilities |= MUTE
 		health = L.health + 300 //stoning damaged mobs will result in easier to shatter statues
@@ -77,20 +80,20 @@
 
 	if (timer <= 0)
 		dump_contents()
-		processing_objects.Remove(src)
+		STOP_PROCESSING(SSprocessing, src)
 		qdel(src)
 
 /obj/structure/closet/statue/dump_contents()
 
 	for(var/obj/O in src)
-		O.forceMove(src.loc)
+		O.forceMove(loc)
 
 	for(var/mob/living/M in src)
 		if(imprisoned)
 			if(imprisoned.key)
 				M.key = imprisoned.key
 
-		M.forceMove(src.loc)
+		M.forceMove(loc)
 		M.sdisabilities &= ~MUTE
 		M.frozen = FALSE
 		M.take_overall_damage((M.health - health - 100),0) //any new damage the statue incurred is transfered to the mob

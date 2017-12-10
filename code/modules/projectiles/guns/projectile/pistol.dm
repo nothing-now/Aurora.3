@@ -146,6 +146,14 @@
 	load_sound = 'sound/weapons/guns/interact/hpistol_magin.ogg'
 	unload_sound = 'sound/weapons/guns/interact/hpistol_magout.ogg'
 	cock_sound = 'sound/weapons/guns/interact/hpistol_cock.ogg'
+	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
+
+/obj/item/weapon/gun/projectile/deagle/update_icon()
+	..()
+	if(ammo_magazine)
+		icon_state = "[initial(icon_state)]"
+	else
+		icon_state = "[initial(icon_state)]-e"
 
 /obj/item/weapon/gun/projectile/deagle/gold
 	desc = "A gold plated gun folded over a million times by superior martian gunsmiths. Uses .50 AE ammo."
@@ -156,7 +164,6 @@
 	desc = "A Deagle brand Deagle for operators operating operationally. Uses .50 AE ammo."
 	icon_state = "deaglecamo"
 	item_state = "deagleg"
-	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 
 /obj/item/weapon/gun/projectile/gyropistol
 	name = "gyrojet pistol"

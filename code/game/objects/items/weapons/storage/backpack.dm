@@ -82,10 +82,10 @@
 	max_w_class = 4
 	max_storage_space = 56
 	storage_cost = 29
-
-	New()
-		..()
-		return
+	item_state_slots = list(
+		slot_l_hand_str = "holdingpack",
+		slot_r_hand_str = "holdingpack"
+		)
 
 	attackby(obj/item/weapon/W as obj, mob/user as mob)
 		if(istype(W, /obj/item/weapon/storage/backpack/holding))
@@ -208,6 +208,10 @@
 	name = "leather satchel"
 	desc = "It's a very fancy satchel made with fine leather."
 	icon_state = "satchel"
+	item_state_slots = list(
+		slot_l_hand_str = "satchel",
+		slot_r_hand_str = "satchel"
+		)
 
 /obj/item/weapon/storage/backpack/satchel/withwallet
 	New()
@@ -440,7 +444,7 @@
 /obj/item/weapon/storage/backpack/messenger/tox
 	name = "research messenger bag"
 	desc = "A backpack worn over one shoulder.  Useful for holding science materials."
-	icon_state = "courierbagnt"
+	icon_state = "courierbagtox"
 
 /obj/item/weapon/storage/backpack/messenger/gen
 	name = "geneticist messenger bag"
@@ -470,9 +474,9 @@
 /obj/item/weapon/storage/backpack/messenger/syndie
 	name = "syndicate messenger bag"
 	desc = "A sturdy backpack worn over one shoulder. This one is in red and black menacing colors."
-	icon_state = "courierbag"
+	icon_state = "courierbagsyndie"
 
 /obj/item/weapon/storage/backpack/messenger/wizard
 	name = "wizardly messenger bag"
 	desc = "A wizardly backpack worn over one shoulder. This one is in blue and purple colors. "
-	icon_state = "courierbag"
+	icon_state = "courierbagwizard"

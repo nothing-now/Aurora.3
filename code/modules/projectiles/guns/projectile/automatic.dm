@@ -90,7 +90,7 @@
 /obj/item/weapon/gun/projectile/automatic/rifle
 	name = "automatic rifle"
 	desc = "A weapon firing an intermediate caliber round, or larger."
-	icon_state = "arifle"
+	icon_state = "railgun"
 	item_state = null
 	w_class = 4
 	force = 10
@@ -266,9 +266,9 @@
 	cover_open = !cover_open
 	user << "<span class='notice'>You [cover_open ? "open" : "close"] [src]'s cover.</span>"
 	if(cover_open)
-		playsound(src.loc, 'sound/weapons/guns/interact/lmg_open.ogg', 50, 1)
+		playsound(src,'sound/weapons/guns/interact/lmg_open.ogg', 50, 1)
 	else
-		playsound(src.loc, 'sound/weapons/guns/interact/lmg_close.ogg', 50, 1)
+		playsound(src,'sound/weapons/guns/interact/lmg_close.ogg', 50, 1)
 
 	update_icon()
 

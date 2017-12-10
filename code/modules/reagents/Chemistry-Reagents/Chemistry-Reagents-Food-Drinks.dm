@@ -355,6 +355,9 @@
 
 /datum/reagent/nutriment/flour/touch_turf(var/turf/simulated/T)
 	if(!istype(T, /turf/space))
+		if(locate(/obj/effect/decal/cleanable/flour) in T)
+			return
+
 		new /obj/effect/decal/cleanable/flour(T)
 
 /datum/reagent/nutriment/coco
@@ -493,8 +496,6 @@
 	taste_mult = 1.5
 
 /datum/reagent/frostoil/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_DIONA)
-		return
 	M.bodytemperature = max(M.bodytemperature - 10 * TEMPERATURE_DAMAGE_COEFFICIENT, 0)
 	if(prob(1))
 		M.emote("shiver")
@@ -516,13 +517,9 @@
 	var/slime_temp_adj = 10
 
 /datum/reagent/capsaicin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_DIONA)
-		return
 	M.adjustToxLoss(0.5 * removed)
 
 /datum/reagent/capsaicin/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_DIONA || alien == IS_MACHINE)
-		return
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if(H.species && (H.species.flags & (NO_PAIN)))
@@ -553,6 +550,8 @@
 	slime_temp_adj = 15
 
 /datum/reagent/capsaicin/condensed/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
+#define EYES_PROTECTED 1
+#define EYES_MECH 2
 	var/eyes_covered = 0
 	var/mouth_covered = 0
 	var/no_pain = 0
@@ -567,13 +566,18 @@
 		protection = list(H.head, H.glasses, H.wear_mask)
 		if(H.species && (H.species.flags & NO_PAIN))
 			no_pain = 1 //TODO: living-level can_feel_pain() proc
+
+		// Robo-eyes are immune to pepperspray now. Wee.
+		var/obj/item/organ/eyes/E = H.get_eyes()
+		if (istype(E) && (E.status & (ORGAN_ROBOT|ORGAN_ADV_ROBOT)))
+			eyes_covered |= EYES_MECH
 	else
 		protection = list(M.wear_mask)
 
 	for(var/obj/item/I in protection)
 		if(I)
 			if(I.body_parts_covered & EYES)
-				eyes_covered = 1
+				eyes_covered |= EYES_PROTECTED
 				eye_protection = I.name
 			if((I.body_parts_covered & FACE) && !(I.item_flags & FLEXIBLEMATERIAL))
 				mouth_covered = 1
@@ -581,8 +585,10 @@
 
 	var/message = null
 	if(eyes_covered)
-		if(!mouth_covered)
+		if (!mouth_covered && (eyes_covered & EYES_PROTECTED))
 			message = "<span class='warning'>Your [eye_protection] protects your eyes from the pepperspray!</span>"
+		else if (eyes_covered & EYES_MECH)
+			message = "<span class='warning'>Your mechanical eyes are invulnurable pepperspray!</span>"
 	else
 		message = "<span class='warning'>The pepperspray gets in your eyes!</span>"
 		if(mouth_covered)
@@ -601,6 +607,8 @@
 			M.custom_emote(2, "[pick("coughs!","coughs hysterically!","splutters!")]")
 		M.Stun(5)
 		M.Weaken(5)
+#undef EYES_PROTECTED
+#undef EYES_MECH
 
 /datum/reagent/condensedcapsaicin/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(ishuman(M))
@@ -649,6 +657,11 @@
 	var/adj_temp = 0
 	var/caffeine = 0 // strength of stimulant effect, since so many drinks use it
 	var/datum/modifier/modifier = null
+
+/datum/reagent/drink/Destroy()
+	if (modifier)
+		QDEL_NULL(modifier)
+	return ..()
 
 /datum/reagent/drink/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustToxLoss(removed) // Probably not a good idea; not very deadly though
@@ -742,8 +755,6 @@
 
 /datum/reagent/drink/limejuice/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	if(alien == IS_DIONA)
-		return
 	M.adjustToxLoss(-0.5 * removed)
 
 /datum/reagent/drink/orangejuice
@@ -759,8 +770,6 @@
 
 /datum/reagent/drink/orangejuice/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	if(alien == IS_DIONA)
-		return
 	M.adjustOxyLoss(-2 * removed)
 
 /datum/reagent/toxin/poisonberryjuice // It has more in common with toxins than drinks... but it's a juice
@@ -800,8 +809,6 @@
 
 /datum/reagent/drink/tomatojuice/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	if(alien == IS_DIONA)
-		return
 	M.heal_organ_damage(0, 0.5 * removed)
 
 /datum/reagent/drink/watermelonjuice
@@ -830,8 +837,6 @@
 
 /datum/reagent/drink/milk/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	if(alien == IS_DIONA)
-		return
 	M.heal_organ_damage(0.5 * removed, 0)
 	holder.remove_reagent("capsaicin", 10 * removed)
 
@@ -874,8 +879,6 @@
 
 /datum/reagent/drink/tea/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	if(alien == IS_DIONA)
-		return
 	M.adjustToxLoss(-0.5 * removed)
 
 /datum/reagent/drink/tea/icetea
@@ -912,8 +915,6 @@
 
 /datum/reagent/drink/coffee/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	if(alien == IS_DIONA)
-		return
 	if(adj_temp > 0)
 		holder.remove_reagent("frostoil", 10 * removed)
 
@@ -925,8 +926,6 @@
 		M.bodytemperature = max(310, M.bodytemperature - (5 * TEMPERATURE_DAMAGE_COEFFICIENT))
 
 /datum/reagent/drink/coffee/overdose(var/mob/living/carbon/M, var/alien)
-	if(alien == IS_DIONA)
-		return
 	M.make_jittery(5)
 
 /datum/reagent/drink/coffee/icecoffee
@@ -1226,8 +1225,6 @@
 
 /datum/reagent/drink/doctor_delight/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	if(alien == IS_DIONA)
-		return
 	M.adjustOxyLoss(-4 * removed)
 	M.heal_organ_damage(2 * removed, 2 * removed)
 	M.adjustToxLoss(-2 * removed)
@@ -1266,8 +1263,6 @@
 
 /datum/reagent/drink/hell_ramen/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	if(alien == IS_DIONA)
-		return
 	M.bodytemperature += 10 * TEMPERATURE_DAMAGE_COEFFICIENT
 
 /datum/reagent/drink/ice
@@ -1340,8 +1335,6 @@
 
 /datum/reagent/ethanol/beer/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	if(alien == IS_DIONA)
-		return
 	M.jitteriness = max(M.jitteriness - 3, 0)
 
 /datum/reagent/ethanol/bitters
@@ -1411,8 +1404,6 @@
 
 /datum/reagent/ethanol/deadrum/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	if(alien == IS_DIONA)
-		return
 	M.dizziness +=5
 
 /datum/reagent/ethanol/gin
@@ -1446,31 +1437,14 @@
 	overdose = 45
 
 /datum/reagent/ethanol/coffee/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_DIONA)
-		return
 	..()
 	M.dizziness = max(0, M.dizziness - 5)
 	M.drowsyness = max(0, M.drowsyness - 3)
 	M.sleeping = max(0, M.sleeping - 2)
 	if(M.bodytemperature > 310)
 		M.bodytemperature = max(310, M.bodytemperature - (5 * TEMPERATURE_DAMAGE_COEFFICIENT))
-	if(alien == IS_TAJARA)
-		M.adjustToxLoss(0.5 * removed)
-		M.make_jittery(4) //extra sensitive to caffine
-
-/datum/reagent/ethanol/coffee/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(alien == IS_TAJARA)
-		M.adjustToxLoss(2 * removed)
-		M.make_jittery(4)
-		return
-	..()
 
 /datum/reagent/ethanol/coffee/overdose(var/mob/living/carbon/M, var/alien)
-	if(alien == IS_DIONA)
-		return
-	if(alien == IS_TAJARA)
-		M.adjustToxLoss(4 * REM)
-		M.apply_effect(3, STUTTER)
 	M.make_jittery(5)
 
 /datum/reagent/ethanol/coffee/kahlua
@@ -1555,8 +1529,6 @@
 
 /datum/reagent/ethanol/thirteenloko/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	if(alien == IS_DIONA)
-		return
 	M.drowsyness = max(0, M.drowsyness - 7)
 	if (M.bodytemperature > 310)
 		M.bodytemperature = max(310, M.bodytemperature - (5 * TEMPERATURE_DAMAGE_COEFFICIENT))
@@ -2179,7 +2151,7 @@
 
 	glass_icon_state = "proj_manhattanglass"
 	glass_name = "glass of Manhattan Project"
-	glass_desc = "A scienitst drink of choice, for thinking how to blow up the station."
+	glass_desc = "A scientist's drink of choice, for thinking how to blow up the station."
 	glass_center_of_mass = list("x"=17, "y"=8)
 
 /datum/reagent/ethanol/manly_dorf
